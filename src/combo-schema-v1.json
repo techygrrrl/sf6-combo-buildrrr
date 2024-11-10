@@ -1,0 +1,27 @@
+// {
+//   "title": "Combo Buildrrr",
+//   "description": "",
+//   "type": "object",
+//   "properties": {
+//     "characters": {
+//       "description": "A list of characters",
+//       "type": "array",
+//       "items": {
+//         "$ref": "/#/components/Character"
+//       }
+//     }
+//   },
+//   "components": {
+//     "Character": {
+//       "properties": {
+//         "name": {
+//           "type": "string"
+//         },
+//         "image": {
+//           "type": "string"
+//         }
+//       },
+//       "required": ["name", "image"]
+//     }
+//   }
+// }

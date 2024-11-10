@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body * {
+  /* @apply border border-cmyk_pink bg-cmyk_pink/5; */
+}
+
+body {
+  @apply bg-sf6_darkpurple text-white;
+}
+
+.container {
+  @apply max-w-2xl m-auto px-4 md:px-8;
+}
+
+.btn {
+  @apply py-2 px-4 bg-cmyk_pink text-white font-bold border-0 rounded-md;
+}
