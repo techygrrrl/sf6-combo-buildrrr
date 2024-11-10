@@ -15,7 +15,7 @@ export const HomeScreen: FC = () => {
     <>
       <div className="text-center p-10">
         <p className="mb-8">
-          <a href="/create" className="btn">
+          <a href="/create" className="">
             Create a Combo
           </a>
         </p>
@@ -23,7 +23,7 @@ export const HomeScreen: FC = () => {
         {combo ?
           <div>
             <p className="my-4">Found combo in URL!</p>
-            <a className="btn my-4" href={`/view/${encodedCombo}`}>
+            <a className=" my-4" href={`/view/${encodedCombo}`}>
               View Combo
             </a>
             <pre className="my-4 text-left">

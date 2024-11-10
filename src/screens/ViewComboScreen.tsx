@@ -1,24 +1,26 @@
 import { FC, useMemo } from 'react'
-import { findCharacter, getSampleCombo } from '../combos/datasource.ts'
 import { useParams } from 'react-router-dom'
-import { Combo } from '../combos/models.ts'
-import { base64DecodeJson } from '../utils/base64.ts'
+import { findCharacter } from '../combos/datasource.ts'
+import { ComboInfoHeader } from '../components/ComboInfoHeader.tsx'
 import { MoveDisplay } from '../components/MoveDisplay.tsx'
-import { CharacterAvatar } from '../components/CharacterAvatar.tsx'
+import { base64DecodeJson } from '../utils/base64.ts'
+import { ComboState } from './CreateComboScreen/combo-state.ts'
 
 export const ViewComboScreen: FC = () => {
   const { encodedCombo } = useParams()
 
-  const combo = getSampleCombo()
-  // const combo: Combo | null = useMemo(() => {
-  //   if (!encodedCombo) return null
+  // const combo = getSampleCombo()
+  const comboState: ComboState | null = useMemo(() => {
+    if (!encodedCombo) return null
 
-  //   try {
-  //     return base64DecodeJson<Combo>(encodedCombo)
-  //   } catch {
-  //     return null
-  //   }
-  // }, [encodedCombo])
+    try {
+      return base64DecodeJson<ComboState>(encodedCombo)
+    } catch {
+      return null
+    }
+  }, [encodedCombo])
+
+  const combo = comboState?.combo ?? null
 
   const currentCharacter = useMemo(() => {
     if (!combo) return null
@@ -27,31 +29,37 @@ export const ViewComboScreen: FC = () => {
   }, [combo])
 
   // TODO: Redirect
-  if (!currentCharacter || !combo) {
+  if (!currentCharacter || !combo || !comboState) {
     return <div className="text-center p-10">Loading...</div>
   }
 
   return (
-    <>
+    <div className="p-4 md:p-8">
       <div className="container">
-        <h1></h1>
+        <ComboInfoHeader
+          avatarSize={160}
+          character={currentCharacter}
+          notes={comboState.notes}
+        />
 
-        <h2>{currentCharacter.name}</h2>
-        <div className="w-56">
-          <CharacterAvatar character={currentCharacter} />
+        <div className="mt-4">
+          {combo.moves.map((move) => (
+            <div
+              key={move.name}
+              className="bg-sf6_royalpurple/30 py-3 px-4 rounded-md mb-2"
+            >
+              <MoveDisplay move={move} size={50} />
+            </div>
+          ))}
         </div>
 
-        {combo.moves.map((move) => (
-          <MoveDisplay key={move.name} move={move} size={70} />
-        ))}
+        <hr className="divider my-20" />
 
-        <div className="my-6">
-          <div className="md:w-1/2">
-            <h2>Combo</h2>
-            <pre>{JSON.stringify(combo, null, 2)}</pre>
-          </div>
+        <div className="font-mono">
+          <h2 className='text-2xl font-bold'>Debug</h2>
+          <pre>{JSON.stringify(comboState, null, 2)}</pre>
         </div>
       </div>
-    </>
+    </div>
   )
 }

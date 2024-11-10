@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { FC, useCallback, useReducer, useState } from 'react'
+import { FC, useCallback, useMemo, useReducer, useState } from 'react'
 import {
   findCharacter,
   getAllCharacters,
@@ -11,6 +11,8 @@ import { CharacterSelect } from '../../components/CharacterSelect/CharacterSelec
 import { MoveDisplay } from '../../components/MoveDisplay.tsx'
 import { MoveSelect } from '../../components/MoveSelect/MoveSelect.tsx'
 import { comboStateReducer, initialComboState } from './combo-state.ts'
+import { base64EncodeJson } from '../../utils/base64.ts'
+import { ComboInfoHeader } from '../../components/ComboInfoHeader.tsx'
 
 export const CreateComboScreen: FC = () => {
   const [formNote, setFormNote] = useState('')
@@ -59,13 +61,19 @@ export const CreateComboScreen: FC = () => {
     })
   }, [formNote])
 
+  const encodedCombo = useMemo(() => {
+    return base64EncodeJson(JSON.stringify(state))
+  }, [state])
+
+  const encodedComboLink = `${location.href.replace('/create', '/view')}/${encodedCombo}`
+
   return (
     <div className="p-4 md:p-8">
       <div className="md:flex md:flex-row-reverse md:gap-6">
-        <div className="md:w-1/2 py-3 px-4 border-2 border-sf6_royalpurple rounded-lg">
+        <div className="md:w-1/2 p-4 border-2 border-sf6_royalpurple rounded-lg">
           <h2 className="text-lg font-bold">Character Select</h2>
 
-          <div className="my-3">
+          <div className="mt-3">
             <CharacterSelect
               size={80}
               selected={state.combo.character}
@@ -115,24 +123,12 @@ export const CreateComboScreen: FC = () => {
         </div>
 
         <div className="md:w-1/2">
-          <header className="flex items-center">
-            <div className="w-40 bg-sf6_royalpurple rounded-md overflow-hidden flex-none">
-              <CharacterAvatar character={comboCharacter} />
-            </div>
-
-            <div className="px-4 ">
-              <h2 className="text-2xl font-bold ">
-                {comboCharacter.name} Combo
-              </h2>
-
-              <p>{state.notes}</p>
-            </div>
-          </header>
+          <ComboInfoHeader avatarSize={160} character={comboCharacter} notes={state.notes} />
 
           <section className="mt-4">
             {state.combo.moves.map((move, idx) => (
               <div
-                key={move.name}
+                key={`${move.name}-${idx}`}
                 onClick={() => handleRemoveMoveAtIndex(idx)}
                 className="group cursor-pointer flex justify-between items-center bg-sf6_royalpurple/30 hover:bg-cmyk_red/30 py-3 px-4 rounded-md mb-2"
               >
@@ -143,6 +139,28 @@ export const CreateComboScreen: FC = () => {
                 </span>
               </div>
             ))}
+          </section>
+
+          <section className="mt-10">
+            <label>
+              <span className="font-bold">Share this combo</span>
+              <input
+                type="text"
+                className="w-full mt-2 bg-transparent border-2 border-sf6_royalpurple outline-none focus:border-sf6_lightpurple rounded-md px-3 py-2"
+                value={encodedComboLink}
+                onClick={(e) => e.target.select()}
+                readOnly
+              />
+            </label>
+
+            <a
+              href={encodedComboLink}
+              target="_blank"
+              rel="nofollow noreferrer"
+              className="break-words block mt-3 text-cmyk_pink hover:underline truncate"
+            >
+              {encodedComboLink}
+            </a>
           </section>
         </div>
       </div>

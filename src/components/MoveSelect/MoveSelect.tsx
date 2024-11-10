@@ -18,7 +18,7 @@ export const MoveSelect: FC<MoveSelectProps> = ({
       {moves.map((move) => (
         <div
           key={move.name}
-          className="bg-sf6_mediumpurple/20 hover:bg-sf6_mediumpurple cursor-pointer py-3 px-4 mb-2 rounded-md"
+          className="bg-sf6_mediumpurple/20 hover:bg-sf6_mediumpurple cursor-pointer py-3 px-4 mb-2 last:mb-0 rounded-md"
           onClick={() => onMoveSelect(move)}
         >
           <MoveDisplay move={move} size={inputSize} />
