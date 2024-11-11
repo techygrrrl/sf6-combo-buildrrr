@@ -64,7 +64,7 @@ export const CreateComboScreen: FC = () => {
 
   const encodedComboLinks = [
     {
-      name: 'Binary encoding (Experimental): Slightly shorter URL but using a third-party library "qntm/base2048"',
+      name: 'Binary encoding (Experimental): Slightly shorter URL but not always recognized as a URL. Using a third-party library "qntm/base2048"',
       url: `${location.href.replace('/create', '/view')}/${BinaryEncodeDecode.encode(JSON.stringify(state))}`,
     },
     {

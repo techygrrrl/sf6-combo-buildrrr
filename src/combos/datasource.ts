@@ -405,16 +405,403 @@ const combosDataSource: CombosDataSource = {
       ...getCommonButtonMoves(),
 
       // Unique moves
-      // {
-      // },
+      {
+        name: 'Révérence',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Tomoe Derrière',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'À Terre',
+        helpText: '',
+        inputs: [
+          commonInputs.MEDIUM_PUNCH,
+          commonInputs.cancel,
+          commonInputs.MEDIUM_KICK,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'En Haut',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+          commonInputs.cancel,
+          commonInputs.MEDIUM_KICK,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Temps Lié',
+        helpText: '',
+        inputs: [
+          commonInputs.HEAVY_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_PUNCH,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Allongé',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_PUNCH,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
 
       // Specials
-      // {
-      // },
+      {
+        name: 'Manège Doré (L)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Manège Doré (M)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Manège Doré (H)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Rond-point (L)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Rond-point (M)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Rond-point (H)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Rond-point (OD)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+        resources: {
+          drive: 2,
+          super: 0,
+        }
+      },
+      {
+        name: 'Dégagé (L)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Dégagé (M)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Dégagé (H)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Dégagé (OD)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+        resources: {
+          drive: 2,
+          super: 0,
+        }
+      },
+      {
+        name: 'Renversé (L)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Renversé (M)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Renversé (H)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
+      {
+        name: 'Renversé (OD)',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+        resources: {
+          drive: 2,
+          super: 0,
+        }
+      },
+      {
+        name: 'Grand Fouetté',
+        helpText: 'During Renversé',
+        inputs: [
+          commonInputs.KICK,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        }
+      },
 
       // Supers
-      // {
-      // },
+      {
+        name: 'Arabesque',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 1,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Étoile',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 2,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Pas de Deux',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 3,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+      },
 
       ...getCommonDriveMoves(),
     ],
@@ -561,6 +948,22 @@ const combosDataSource: CombosDataSource = {
           commonInputs.HEAVY_KICK,
         ],
       },
+      {
+        name: 'Spiral Arrow (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+      },
 
       // DP
       {
@@ -624,6 +1027,22 @@ const combosDataSource: CombosDataSource = {
           commonInputs.motion_DOWN_FORWARD,
           commonInputs.plus,
           commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Cannon Spike (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
         ],
       },
 
@@ -793,7 +1212,7 @@ const combosDataSource: CombosDataSource = {
         name: 'Hooligan Combination (OD)',
         helpText: '',
         resources: {
-          drive: 0,
+          drive: 2,
           super: 0,
         },
         width: 50,

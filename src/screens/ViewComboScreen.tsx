@@ -44,43 +44,47 @@ export const ViewComboScreen: FC = () => {
   }
 
   return (
-    <div className="p-4 md:p-8">
-      <div className="container">
-        <ComboInfoHeader
-          avatarSize={160}
-          character={currentCharacter}
-          notes={comboState.notes}
-        />
+    <div>
+      <div className="mb-6">
+        <Disclaimer />
+      </div>
 
-        <div className="mt-4">
-          {combo.moves.map((move) => (
-            <div
-              key={move.name}
-              className="bg-sf6_royalpurple/30 py-3 px-4 rounded-md mb-2"
-            >
-              <MoveDisplay move={move} size={50} />
-            </div>
-          ))}
+      <div className="p-4 md:p-8">
+        <div className="container">
+          <ComboInfoHeader
+            avatarSize={160}
+            character={currentCharacter}
+            notes={comboState.notes}
+          />
+
+          <div className="mt-4">
+            {combo.moves.map((move) => (
+              <div
+                key={move.name}
+                className="bg-sf6_royalpurple/30 py-3 px-4 rounded-md mb-2"
+              >
+                <MoveDisplay move={move} size={40} />
+              </div>
+            ))}
+          </div>
+
+          {showDebug ?
+            <hr className="divider my-20" />
+          : null}
         </div>
 
         {showDebug ?
-          <hr className="divider my-20" />
-        : null}
+          <div className="font-mono overflow-x-scroll">
+            <h2 className="text-2xl font-bold">Debug</h2>
+            <pre className="">{JSON.stringify(comboState, null, 2)}</pre>
+          </div>
+        : <div className="text-center text-xs mt-8">
+            <a className="text-cmyk_pink" href={`${location.href}?debug=1`}>
+              Debug? Click then scroll 👇
+            </a>
+          </div>
+        }
       </div>
-
-      {showDebug ?
-        <div className="font-mono overflow-x-scroll">
-          <h2 className="text-2xl font-bold">Debug</h2>
-          <pre className="">{JSON.stringify(comboState, null, 2)}</pre>
-        </div>
-      : <div className="text-center text-xs mt-8">
-          <a className="text-cmyk_pink" href={`${location.href}?debug=1`}>
-            Debug? Click then scroll 👇
-          </a>
-        </div>
-      }
-
-      <Disclaimer />
     </div>
   )
 }
