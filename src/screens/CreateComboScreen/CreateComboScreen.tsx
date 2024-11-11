@@ -147,7 +147,7 @@ export const CreateComboScreen: FC = () => {
                   onClick={() => handleRemoveMoveAtIndex(idx)}
                   className="relative group cursor-pointer flex justify-between items-center bg-sf6_royalpurple/30 hover:bg-cmyk_red/30 py-3 px-4 rounded-md mb-2"
                 >
-                  <MoveDisplay move={move} size={40} />
+                  <MoveDisplay move={move} size={40} hideResourceBarMobile={false} />
 
                   <span className="hidden group-hover:block text-cmyk_red font-bold absolute right-4 bottom-4">
                     Remove

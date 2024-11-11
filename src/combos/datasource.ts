@@ -416,7 +416,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Tomoe Derrière',
@@ -429,7 +429,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'À Terre',
@@ -442,7 +442,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'En Haut',
@@ -457,7 +457,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Temps Lié',
@@ -470,7 +470,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Allongé',
@@ -485,7 +485,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
 
       // Specials
@@ -505,7 +505,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Manège Doré (M)',
@@ -523,7 +523,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Manège Doré (H)',
@@ -541,7 +541,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Rond-point (L)',
@@ -557,7 +557,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Rond-point (M)',
@@ -573,7 +573,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Rond-point (H)',
@@ -589,7 +589,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Rond-point (OD)',
@@ -605,7 +605,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 2,
           super: 0,
-        }
+        },
       },
       {
         name: 'Dégagé (L)',
@@ -621,7 +621,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Dégagé (M)',
@@ -637,7 +637,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Dégagé (H)',
@@ -653,7 +653,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Dégagé (OD)',
@@ -669,7 +669,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 2,
           super: 0,
-        }
+        },
       },
       {
         name: 'Renversé (L)',
@@ -685,7 +685,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Renversé (M)',
@@ -701,7 +701,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Renversé (H)',
@@ -717,7 +717,7 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
       {
         name: 'Renversé (OD)',
@@ -733,18 +733,16 @@ const combosDataSource: CombosDataSource = {
         resources: {
           drive: 2,
           super: 0,
-        }
+        },
       },
       {
         name: 'Grand Fouetté',
         helpText: 'During Renversé',
-        inputs: [
-          commonInputs.KICK,
-        ],
+        inputs: [commonInputs.KICK],
         resources: {
           drive: 0,
           super: 0,
-        }
+        },
       },
 
       // Supers

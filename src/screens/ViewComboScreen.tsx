@@ -63,7 +63,7 @@ export const ViewComboScreen: FC = () => {
                 key={move.name}
                 className="bg-sf6_royalpurple/30 py-3 px-4 rounded-md mb-2"
               >
-                <MoveDisplay move={move} size={40} />
+                <MoveDisplay move={move} size={40} hideResourceBarMobile={false} />
               </div>
             ))}
           </div>
@@ -73,22 +73,26 @@ export const ViewComboScreen: FC = () => {
           : null}
         </div>
 
-        {showDebug ?
-          <div className="font-mono overflow-x-scroll">
-            <h2 className="text-2xl font-bold">Debug</h2>
-            <pre className="">{JSON.stringify(comboState, null, 2)}</pre>
-          </div>
-        // : <div className="text-center text-xs mt-8">
-        //     <a className="text-cmyk_pink" href={`${location.href}?debug=1`}>
-        //       Debug? Click then scroll 👇
-        //     </a>
-        //   </div>
-        : null
+        {
+          showDebug ?
+            <div className="font-mono overflow-x-scroll">
+              <h2 className="text-2xl font-bold">Debug</h2>
+              <pre className="">{JSON.stringify(comboState, null, 2)}</pre>
+            </div>
+            // : <div className="text-center text-xs mt-8">
+            //     <a className="text-cmyk_pink" href={`${location.href}?debug=1`}>
+            //       Debug? Click then scroll 👇
+            //     </a>
+            //   </div>
+          : null
         }
       </div>
 
       <div className="text-center pt-4 pb-14">
-        <a href="/" className="bg-cmyk_pink/60 hover:bg-cmyk_pink font-semibold px-5 py-3 text-white rounded-full">
+        <a
+          href="/"
+          className="bg-cmyk_pink/60 hover:bg-cmyk_pink font-semibold px-5 py-3 text-white rounded-full"
+        >
           Create a Combo
         </a>
       </div>

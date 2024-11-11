@@ -1,24 +1,40 @@
+import classNames from 'classnames'
 import { FC } from 'react'
 import { Move } from '../combos/models'
 
 type MoveDisplayProps = {
   size: number
   move: Move
+  hideResourceBarMobile: boolean
 }
 
-export const MoveDisplay: FC<MoveDisplayProps> = ({ size, move }) => {
+export const MoveDisplay: FC<MoveDisplayProps> = ({
+  size,
+  move,
+  hideResourceBarMobile,
+}) => {
   return (
     <div key={move.name} className="relative w-full">
       {move.resources.drive || move.resources.super ?
         <div className="absolute top-0 right-0">
           {move.resources.drive ?
-            <span className="flex gap-2 items-center">
+            <span
+              className={classNames('gap-2 items-center', {
+                hidden: hideResourceBarMobile,
+                flex: !hideResourceBarMobile,
+              })}
+            >
               <div className="w-8 h-4 bg-cmyk_green -skew-y-12 rotate-12" />{' '}
               {move.resources.drive}
             </span>
           : null}
           {move.resources.super ?
-            <span className="flex gap-2 items-center">
+            <span
+              className={classNames('gap-2 items-center', {
+                hidden: hideResourceBarMobile,
+                flex: !hideResourceBarMobile,
+              })}
+            >
               <div className="w-8 h-4 bg-cmyk_pink -skew-y-12 rotate-12" />{' '}
               {move.resources.super}
             </span>
