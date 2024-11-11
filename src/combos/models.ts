@@ -17,10 +17,11 @@ export type Move = {
   name: string
   helpText: string
   resources: {
-    drive: 0 | 1 | 2 | 3 | 4 | 5
-    super: 0 | 1 | 2 | 3
+    drive: number
+    super: number
   }
   inputs: Input[]
+  width?: number
 }
 
 export type Combo = {
