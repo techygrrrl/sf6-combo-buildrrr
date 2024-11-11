@@ -49,7 +49,7 @@ export const ViewComboScreen: FC = () => {
         <Disclaimer />
       </div>
 
-      <div className="p-4 md:p-8">
+      <div className="md:py-8">
         <div className="container">
           <ComboInfoHeader
             avatarSize={160}
