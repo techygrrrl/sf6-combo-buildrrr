@@ -78,12 +78,19 @@ export const ViewComboScreen: FC = () => {
             <h2 className="text-2xl font-bold">Debug</h2>
             <pre className="">{JSON.stringify(comboState, null, 2)}</pre>
           </div>
-        : <div className="text-center text-xs mt-8">
-            <a className="text-cmyk_pink" href={`${location.href}?debug=1`}>
-              Debug? Click then scroll 👇
-            </a>
-          </div>
+        // : <div className="text-center text-xs mt-8">
+        //     <a className="text-cmyk_pink" href={`${location.href}?debug=1`}>
+        //       Debug? Click then scroll 👇
+        //     </a>
+        //   </div>
+        : null
         }
+      </div>
+
+      <div className="text-center pt-4">
+        <a href="/" className="bg-cmyk_pink/60 hover:bg-cmyk_pink font-semibold px-5 py-3 text-white rounded-full">
+          Create a Combo
+        </a>
       </div>
     </div>
   )
