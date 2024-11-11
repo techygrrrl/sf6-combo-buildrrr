@@ -64,12 +64,12 @@ export const CreateComboScreen: FC = () => {
 
   const encodedComboLinks = [
     {
-      name: 'Binary encoding (Experimental): Slightly shorter URL but not always recognized as a URL. Using a third-party library "qntm/base2048"',
-      url: `${location.href}c/${BinaryEncodeDecode.encode(JSON.stringify(state))}`,
-    },
-    {
       name: 'Base64: Longer URL but looks more familiar',
       url: `${location.href}c/${Base64EncodeDecode.encode(JSON.stringify(state))}`,
+    },
+    {
+      name: 'Binary encoding (Experimental): Slightly shorter URL but not always recognized as a URL. Using a third-party library "qntm/base2048"',
+      url: `${location.href}c/${BinaryEncodeDecode.encode(JSON.stringify(state))}`,
     },
   ]
 
