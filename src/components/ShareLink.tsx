@@ -38,6 +38,10 @@ export const ShareLink: FC<ShareLinkProps> = ({ description, url, title }) => {
       >
         {title}
       </a>
+
+      <p className="font-mono mt-3 text-xs">
+        URL size: {url.length} characters
+      </p>
     </section>
   )
 }
