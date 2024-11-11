@@ -1,7 +1,6 @@
+import classNames from 'classnames'
 import { FC } from 'react'
 import { Character, CharacterId } from '../../combos/models'
-import { getAllCharacters } from '../../combos/datasource'
-import classNames from 'classnames'
 import { CharacterAvatar } from '../CharacterAvatar'
 
 type CharacterSelectProps = {

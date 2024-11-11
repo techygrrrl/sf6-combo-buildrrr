@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom'
 import { findCharacter } from '../combos/datasource.ts'
 import { ComboInfoHeader } from '../components/ComboInfoHeader.tsx'
 import { MoveDisplay } from '../components/MoveDisplay.tsx'
-import { ComboState } from './CreateComboScreen/combo-state.ts'
 import { useDebug } from '../hooks/useDebug.ts'
-import { Encoding } from '../utils/encoding.ts'
+import { Base64EncodeDecode, BinaryEncodeDecode } from '../utils/encoding.ts'
+import { ComboState } from './CreateComboScreen/combo-state.ts'
 
 export const ViewComboScreen: FC = () => {
   const showDebug = useDebug()
@@ -15,7 +15,11 @@ export const ViewComboScreen: FC = () => {
     if (!encodedCombo) return null
 
     try {
-      return Encoding.decode<ComboState>(encodedCombo)
+      if (encodedCombo.startsWith('ey')) {
+        return Base64EncodeDecode.decode<ComboState>(encodedCombo)
+      } else {
+        return BinaryEncodeDecode.decode<ComboState>(encodedCombo)
+      }
     } catch (e) {
       console.error(e)
       return null
@@ -30,9 +34,12 @@ export const ViewComboScreen: FC = () => {
     return findCharacter(combo.character)
   }, [combo])
 
-  // TODO: Redirect
   if (!currentCharacter || !combo || !comboState) {
-    return <div className="text-center p-10">Loading...</div>
+    return (
+      <div className="text-center p-10">
+        Failed to load combo data. Check the console.
+      </div>
+    )
   }
 
   return (
@@ -65,7 +72,12 @@ export const ViewComboScreen: FC = () => {
           <h2 className="text-2xl font-bold">Debug</h2>
           <pre className="">{JSON.stringify(comboState, null, 2)}</pre>
         </div>
-      : null}
+      : <div className="text-center text-xs mt-8">
+          <a className="text-cmyk_pink" href={`${location.href}?debug=1`}>
+            Debug? Click then scroll 👇
+          </a>
+        </div>
+      }
     </div>
   )
 }

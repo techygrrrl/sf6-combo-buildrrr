@@ -1,18 +1,18 @@
 import classNames from 'classnames'
-import { FC, useCallback, useMemo, useReducer, useState } from 'react'
+import { FC, useCallback, useReducer, useState } from 'react'
 import {
   findCharacter,
   getAllCharacters,
   getAllMovesForCharacter,
 } from '../../combos/datasource.ts'
 import { Character, Move } from '../../combos/models.ts'
-import { CharacterAvatar } from '../../components/CharacterAvatar.tsx'
 import { CharacterSelect } from '../../components/CharacterSelect/CharacterSelect.tsx'
+import { ComboInfoHeader } from '../../components/ComboInfoHeader.tsx'
 import { MoveDisplay } from '../../components/MoveDisplay.tsx'
 import { MoveSelect } from '../../components/MoveSelect/MoveSelect.tsx'
+import { ShareLink } from '../../components/ShareLink.tsx'
+import { Base64EncodeDecode, BinaryEncodeDecode } from '../../utils/encoding.ts'
 import { comboStateReducer, initialComboState } from './combo-state.ts'
-import { ComboInfoHeader } from '../../components/ComboInfoHeader.tsx'
-import { Encoding } from '../../utils/encoding.ts'
 
 export const CreateComboScreen: FC = () => {
   const [formNote, setFormNote] = useState('')
@@ -61,12 +61,16 @@ export const CreateComboScreen: FC = () => {
     })
   }, [formNote])
 
-  const encodedCombo = useMemo(() => {
-    return Encoding.encode(JSON.stringify(state))
-    // return base64EncodeJson(JSON.stringify(state))
-  }, [state])
-
-  const encodedComboLink = `${location.href.replace('/create', '/view')}/${encodedCombo}`
+  const encodedComboLinks = [
+    {
+      name: 'Binary encoding (Experimental): Slightly shorter URL but using a third-party library "qntm/base2048"',
+      url: `${location.href.replace('/create', '/view')}/${BinaryEncodeDecode.encode(JSON.stringify(state))}`,
+    },
+    {
+      name: 'Base64: Longer URL but looks more familiar',
+      url: `${location.href.replace('/create', '/view')}/${Base64EncodeDecode.encode(JSON.stringify(state))}`,
+    },
+  ]
 
   return (
     <div className="p-4 md:p-8">
@@ -123,8 +127,12 @@ export const CreateComboScreen: FC = () => {
           </div>
         </div>
 
-        <div className="md:w-1/2">
-          <ComboInfoHeader avatarSize={160} character={comboCharacter} notes={state.notes} />
+        <div className="md:w-1/2 mt-8 md:mt-0">
+          <ComboInfoHeader
+            avatarSize={160}
+            character={comboCharacter}
+            notes={state.notes}
+          />
 
           <section className="mt-4">
             {state.combo.moves.map((move, idx) => (
@@ -142,36 +150,31 @@ export const CreateComboScreen: FC = () => {
             ))}
           </section>
 
-          <section className="mt-10">
-            <label>
-              <span className="font-bold">Share this combo</span>
-              <input
-                type="text"
-                className="w-full mt-2 bg-transparent border-2 border-sf6_royalpurple outline-none focus:border-sf6_lightpurple rounded-md px-3 py-2"
-                value={encodedComboLink}
-                onClick={(e) => e.target.select()}
-                readOnly
-              />
-            </label>
+          {
+            state.combo.moves.length ?
+              <div className="my-10 p-4 md:p-6 bg-sf6_royalpurple/20 rounded-lg">
+                <p className="font-bold text-lg">Share this combo</p>
+                {encodedComboLinks.map(({ url, name }) => (
+                  <div
+                    key={name}
+                    className="py-6 last:pb-0 border-b border-sf6_lightpurple/50 last:border-0"
+                  >
+                    <ShareLink
+                      description={name}
+                      url={url}
+                      title={state.notes || comboCharacter.name + ' Combo'}
+                    />
+                  </div>
+                ))}
+              </div>
+              // Empty state
+            : <div>
+                <p className="text-center py-8">
+                  Pick a character and some moves to start building your combo.
+                </p>
+              </div>
 
-            <a
-              href={encodedComboLink}
-              target="_blank"
-              rel="nofollow noreferrer"
-              className="break-words block my-3 text-cmyk_pink hover:underline truncate"
-            >
-              {encodedComboLink}
-            </a>
-
-            <a
-              href={encodedComboLink}
-              target="_blank"
-              rel="nofollow noreferrer"
-              className=" text-cmyk_pink hover:underline"
-            >
-              {state.notes || comboCharacter.name + ' Combo'}
-            </a>
-          </section>
+          }
         </div>
       </div>
     </div>
