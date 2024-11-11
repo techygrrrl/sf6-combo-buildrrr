@@ -30,13 +30,16 @@ export const CharacterSelect: FC<CharacterSelectProps> = ({
                 `Help add moves to ${character.name}`
               : `Pick ${character.name} and build a combo!`
             }
-            className={classNames(' hover:cursor-pointer', {
+            className={classNames('cursor-pointer', {
               'bg-sf6_royalpurple': selected === character.id,
               'hover:bg-sf6_mediumpurple': !character.disabled,
               'opacity-40': character.disabled,
               'hover:cursor-not-allowed': character.disabled,
             })}
-            onClick={() => onCharacterSelect(character)}
+            onClick={() => {
+              if (character.disabled) return
+              onCharacterSelect(character)
+            }}
           >
             <CharacterAvatar character={character} />
           </div>
