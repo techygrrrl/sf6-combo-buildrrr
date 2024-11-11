@@ -87,7 +87,7 @@ export const ViewComboScreen: FC = () => {
         }
       </div>
 
-      <div className="text-center pt-4">
+      <div className="text-center pt-4 pb-14">
         <a href="/" className="bg-cmyk_pink/60 hover:bg-cmyk_pink font-semibold px-5 py-3 text-white rounded-full">
           Create a Combo
         </a>

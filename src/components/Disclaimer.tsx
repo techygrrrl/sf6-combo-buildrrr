@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 export const Disclaimer: FC = () => {
   return (
-    <div className="py-2 bg-cmyk_pink/60 text-center">
+    <div className="p-2 bg-cmyk_pink/60 text-center">
       <p className="text-white text-sm">
         This website{' '}
         <strong>
