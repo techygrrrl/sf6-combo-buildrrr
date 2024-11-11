@@ -66,9 +66,3 @@ export const CharacterSelect: FC<CharacterSelectProps> = ({
     </div>
   )
 }
-
-// export const CharacterSelectContainer = () => {
-//   const characters = getAllCharacters()
-
-//   return <CharacterSelect characters={characters} />
-// }

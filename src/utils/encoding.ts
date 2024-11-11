@@ -34,5 +34,5 @@ export const BinaryEncodeDecode: EncoderDecoder = {
   },
 }
 
-export const Encoding: EncoderDecoder = BinaryEncodeDecode
+// export const Encoding: EncoderDecoder = BinaryEncodeDecode
 // export const Encoding: EncoderDecoder = Base64EncodeDecode
