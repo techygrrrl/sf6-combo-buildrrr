@@ -13,7 +13,7 @@ export type Input = {
 }
 
 export type Move = {
-  character: CharacterId
+  // character: CharacterId
   name: string
   helpText: string
   resources: {

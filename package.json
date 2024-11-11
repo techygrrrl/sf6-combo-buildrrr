@@ -11,6 +11,7 @@
     "prettier": "npx prettier --write ."
   },
   "dependencies": {
+    "base2048": "^2.0.2",
     "classnames": "^2.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

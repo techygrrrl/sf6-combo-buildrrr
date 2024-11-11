@@ -13,12 +13,12 @@ export const MoveDisplay: FC<MoveDisplayProps> = ({ size, move }) => {
         <div className="absolute top-0 right-0">
           {move.resources.drive ?
             <span className="flex gap-2 items-center">
-              <div className="w-8 h-4 bg-cmyk_green" /> {move.resources.drive}
+              <div className="w-8 h-4 bg-cmyk_green -skew-y-12 rotate-12" /> {move.resources.drive}
             </span>
           : null}
           {move.resources.super ?
             <span className="flex gap-2 items-center">
-              <div className="w-8 h-4 bg-cmyk_pink" /> {move.resources.super}
+              <div className="w-8 h-4 bg-cmyk_pink -skew-y-12 rotate-12" /> {move.resources.super}
             </span>
           : null}
         </div>

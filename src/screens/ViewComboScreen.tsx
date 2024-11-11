@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom'
 import { findCharacter } from '../combos/datasource.ts'
 import { ComboInfoHeader } from '../components/ComboInfoHeader.tsx'
 import { MoveDisplay } from '../components/MoveDisplay.tsx'
-import { base64DecodeJson } from '../utils/base64.ts'
 import { ComboState } from './CreateComboScreen/combo-state.ts'
 import { useDebug } from '../hooks/useDebug.ts'
+import { Encoding } from '../utils/encoding.ts'
 
 export const ViewComboScreen: FC = () => {
   const showDebug = useDebug()
@@ -15,8 +15,9 @@ export const ViewComboScreen: FC = () => {
     if (!encodedCombo) return null
 
     try {
-      return base64DecodeJson<ComboState>(encodedCombo)
-    } catch {
+      return Encoding.decode<ComboState>(encodedCombo)
+    } catch (e) {
+      console.error(e)
       return null
     }
   }, [encodedCombo])

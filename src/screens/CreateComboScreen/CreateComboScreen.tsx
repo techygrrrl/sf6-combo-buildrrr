@@ -11,8 +11,8 @@ import { CharacterSelect } from '../../components/CharacterSelect/CharacterSelec
 import { MoveDisplay } from '../../components/MoveDisplay.tsx'
 import { MoveSelect } from '../../components/MoveSelect/MoveSelect.tsx'
 import { comboStateReducer, initialComboState } from './combo-state.ts'
-import { base64EncodeJson } from '../../utils/base64.ts'
 import { ComboInfoHeader } from '../../components/ComboInfoHeader.tsx'
+import { Encoding } from '../../utils/encoding.ts'
 
 export const CreateComboScreen: FC = () => {
   const [formNote, setFormNote] = useState('')
@@ -62,7 +62,8 @@ export const CreateComboScreen: FC = () => {
   }, [formNote])
 
   const encodedCombo = useMemo(() => {
-    return base64EncodeJson(JSON.stringify(state))
+    return Encoding.encode(JSON.stringify(state))
+    // return base64EncodeJson(JSON.stringify(state))
   }, [state])
 
   const encodedComboLink = `${location.href.replace('/create', '/view')}/${encodedCombo}`
@@ -157,9 +158,18 @@ export const CreateComboScreen: FC = () => {
               href={encodedComboLink}
               target="_blank"
               rel="nofollow noreferrer"
-              className="break-words block mt-3 text-cmyk_pink hover:underline truncate"
+              className="break-words block my-3 text-cmyk_pink hover:underline truncate"
             >
               {encodedComboLink}
+            </a>
+
+            <a
+              href={encodedComboLink}
+              target="_blank"
+              rel="nofollow noreferrer"
+              className=" text-cmyk_pink hover:underline"
+            >
+              {state.notes || comboCharacter.name + ' Combo'}
             </a>
           </section>
         </div>

@@ -1,5 +1,5 @@
 import {
-  Character,
+  // Character,
   CharacterId,
   Combo,
   CombosDataSource,
@@ -91,11 +91,11 @@ const commonInputs = {
 }
 
 const getCommonDriveMovesForCharacter = (
-  character: CharacterId,
+  // character: CharacterId,
 ): Move[] => {
   return [
     {
-      character,
+      // character,
       name: 'Parry Drive Rush',
       helpText: 'During a drive parry',
       resources: {
@@ -111,7 +111,7 @@ const getCommonDriveMovesForCharacter = (
       width: 50,
     },
     {
-      character,
+      // character,
       name: 'Drive Rush Cancel',
       helpText: 'While connecting with a special cancellable move',
       resources: {
@@ -129,7 +129,7 @@ const getCommonDriveMovesForCharacter = (
       width: 50,
     },
     {
-      character,
+      // character,
       name: 'Drive Impact',
       helpText: '',
       resources: {
@@ -149,7 +149,7 @@ const getCommonButtonMovesForCharacter = (character: CharacterId): Move[] => {
     // Standing
     // 5LP
     {
-      character,
+      // character,
       name: 'Standing light punch',
       helpText: '',
       resources: {
@@ -162,7 +162,7 @@ const getCommonButtonMovesForCharacter = (character: CharacterId): Move[] => {
 
     // 5MP
     {
-      character,
+      // character,
       name: 'Standing medium punch',
       helpText: '',
       resources: {
@@ -175,7 +175,7 @@ const getCommonButtonMovesForCharacter = (character: CharacterId): Move[] => {
 
     // 5HP
     {
-      character,
+      // character,
       name: 'Standing heavy punch',
       helpText: '',
       resources: {
@@ -188,7 +188,7 @@ const getCommonButtonMovesForCharacter = (character: CharacterId): Move[] => {
 
     // 5LK
     {
-      character,
+      // character,
       name: 'Standing light kick',
       helpText: '',
       resources: {
@@ -201,7 +201,7 @@ const getCommonButtonMovesForCharacter = (character: CharacterId): Move[] => {
 
     // 5MK
     {
-      character,
+      // character,
       name: 'Standing medium kick',
       helpText: '',
       resources: {
@@ -214,7 +214,7 @@ const getCommonButtonMovesForCharacter = (character: CharacterId): Move[] => {
 
     // 5HK
     {
-      character,
+      // character,
       name: 'Standing heavy kick',
       helpText: '',
       resources: {
@@ -229,7 +229,7 @@ const getCommonButtonMovesForCharacter = (character: CharacterId): Move[] => {
 
     // 2LP
     {
-      character,
+      // character,
       name: 'Crouching light punch',
       helpText: '',
       resources: {
@@ -242,7 +242,7 @@ const getCommonButtonMovesForCharacter = (character: CharacterId): Move[] => {
 
     // 2MP
     {
-      character,
+      // character,
       name: 'Crouching medium punch',
       helpText: '',
       resources: {
@@ -255,7 +255,7 @@ const getCommonButtonMovesForCharacter = (character: CharacterId): Move[] => {
 
     // 2HP
     {
-      character,
+      // character,
       name: 'Crouching heavy punch',
       helpText: '',
       resources: {
@@ -268,7 +268,7 @@ const getCommonButtonMovesForCharacter = (character: CharacterId): Move[] => {
 
     // 2LK
     {
-      character,
+      // character,
       name: 'Crouching light kick',
       helpText: '',
       resources: {
@@ -281,7 +281,7 @@ const getCommonButtonMovesForCharacter = (character: CharacterId): Move[] => {
 
     // 2MK
     {
-      character,
+      // character,
       name: 'Crouching medium kick',
       helpText: '',
       resources: {
@@ -294,7 +294,7 @@ const getCommonButtonMovesForCharacter = (character: CharacterId): Move[] => {
 
     // 2HK
     {
-      character,
+      // character,
       name: 'Crouching heavy kick',
       helpText: '',
       resources: {
@@ -414,7 +414,7 @@ const combosDataSource: CombosDataSource = {
 
       // Unique moves
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Lift Uppercut',
         helpText: '',
         resources: {
@@ -428,7 +428,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Delayed Ripper',
         helpText: '',
         resources: {
@@ -442,7 +442,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Assault Blade',
         helpText: '',
         resources: {
@@ -456,7 +456,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Lift Combination',
         helpText: '',
         resources: {
@@ -472,7 +472,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Swing Combination',
         helpText: '',
         resources: {
@@ -491,7 +491,7 @@ const combosDataSource: CombosDataSource = {
 
       // Spiral Arrow (LK)
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Spiral Arrow (L)',
         helpText: '',
         resources: {
@@ -510,7 +510,7 @@ const combosDataSource: CombosDataSource = {
 
       // Spiral Arrow (MK)
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Spiral Arrow (M)',
         helpText: '',
         resources: {
@@ -529,7 +529,7 @@ const combosDataSource: CombosDataSource = {
 
       // Spiral Arrow (HK)
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Spiral Arrow (H)',
         helpText: '',
         resources: {
@@ -546,7 +546,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Spiral Arrow (H) (charged)',
         helpText: '',
         resources: {
@@ -564,7 +564,7 @@ const combosDataSource: CombosDataSource = {
 
       // DP
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Cannon Spike (L)',
         helpText: '',
         resources: {
@@ -581,7 +581,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Cannon Spike (M)',
         helpText: '',
         resources: {
@@ -598,7 +598,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Cannon Spike (H)',
         helpText: '',
         resources: {
@@ -615,7 +615,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Cannon Spike (H) (charged)',
         helpText: '',
         resources: {
@@ -632,7 +632,7 @@ const combosDataSource: CombosDataSource = {
       },
 
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Quick Spin Knuckle (L)',
         helpText: '',
         resources: {
@@ -649,7 +649,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Quick Spin Knuckle (M)',
         helpText: '',
         resources: {
@@ -666,7 +666,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Quick Spin Knuckle (H)',
         helpText: '',
         resources: {
@@ -683,7 +683,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Quick Spin Knuckle (OD)',
         helpText: '',
         resources: {
@@ -701,7 +701,7 @@ const combosDataSource: CombosDataSource = {
       },
       // dive kick
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Cannon Strike',
         helpText: 'During a forward jump',
         resources: {
@@ -718,7 +718,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Cannon Strike (OD)',
         helpText: 'During a forward jump',
         resources: {
@@ -736,7 +736,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Hooligan Combination (L)',
         helpText: '',
         resources: {
@@ -753,7 +753,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Hooligan Combination (M)',
         helpText: '',
         resources: {
@@ -770,7 +770,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Hooligan Combination (H)',
         helpText: '',
         resources: {
@@ -787,7 +787,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Hooligan Combination (H) (charged)',
         helpText: '',
         resources: {
@@ -804,7 +804,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Hooligan Combination (OD)',
         helpText: '',
         resources: {
@@ -822,7 +822,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: "Razor's Edge Slicer",
         helpText: 'During Hooligan Combination',
         resources: {
@@ -833,7 +833,7 @@ const combosDataSource: CombosDataSource = {
         inputs: [],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Hooligan Cannon Strike',
         helpText: 'During Hooligan Combination',
         resources: {
@@ -844,7 +844,7 @@ const combosDataSource: CombosDataSource = {
         inputs: [commonInputs.KICK],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Reverse Edge',
         helpText: 'During Hooligan Combination',
         resources: {
@@ -855,7 +855,7 @@ const combosDataSource: CombosDataSource = {
         inputs: [commonInputs.motion_DOWN, commonInputs.KICK],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Fatal Leg Twister',
         helpText: 'During Hooligan Combination',
         resources: {
@@ -868,7 +868,7 @@ const combosDataSource: CombosDataSource = {
 
       // Supers
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Spin Drive Smasher',
         helpText: '',
         resources: {
@@ -887,7 +887,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Killer Bee Spin',
         helpText: '',
         resources: {
@@ -906,7 +906,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Aerial Killer Bee Spin',
         helpText: 'During a forward jump',
         resources: {
@@ -925,7 +925,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'cammy',
+        // character: 'cammy',
         name: 'Delta Red Assault',
         helpText: '',
         resources: {
@@ -952,7 +952,7 @@ const combosDataSource: CombosDataSource = {
 
       // Unique
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Kyosesho',
         helpText: '',
         resources: {
@@ -966,7 +966,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Senkai Kick',
         helpText: '',
         resources: {
@@ -980,7 +980,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Renko Kick',
         helpText: '',
         resources: {
@@ -994,7 +994,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Korenzan',
         helpText: '',
         resources: {
@@ -1008,7 +1008,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Death Crest',
         helpText: '',
         resources: {
@@ -1027,7 +1027,7 @@ const combosDataSource: CombosDataSource = {
       },
 
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Fuhajin (L)',
         helpText: '',
         resources: {
@@ -1044,7 +1044,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Fuhajin (M)',
         helpText: '',
         resources: {
@@ -1061,7 +1061,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Fuhajin (H)',
         helpText: '',
         resources: {
@@ -1078,7 +1078,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Saihasho',
         helpText: '',
         resources: {
@@ -1095,7 +1095,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Ankensatsu',
         helpText: '',
         resources: {
@@ -1112,7 +1112,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Go Ohsatsu',
         helpText: '',
         resources: {
@@ -1131,7 +1131,7 @@ const combosDataSource: CombosDataSource = {
 
       //
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Tensenrin (L)',
         helpText: '',
         resources: {
@@ -1148,7 +1148,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Tensenrin (M)',
         helpText: '',
         resources: {
@@ -1165,7 +1165,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Tensenrin (H)',
         helpText: '',
         resources: {
@@ -1184,7 +1184,7 @@ const combosDataSource: CombosDataSource = {
 
       // dive kick
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Shiku-sen',
         helpText: 'During a forward jump',
         resources: {
@@ -1201,7 +1201,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Shiku-sen (OD)',
         helpText: 'During a forward jump',
         resources: {
@@ -1221,7 +1221,7 @@ const combosDataSource: CombosDataSource = {
 
       // Supers
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Sakkai Fuhazan',
         helpText: '',
         resources: {
@@ -1240,7 +1240,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Feng Shui Engine',
         helpText: '',
         resources: {
@@ -1259,7 +1259,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
-        character: 'juri',
+        // character: 'juri',
         name: 'Kaisen Dankai Raku',
         helpText: '',
         resources: {
