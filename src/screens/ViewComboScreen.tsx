@@ -6,6 +6,7 @@ import { MoveDisplay } from '../components/MoveDisplay.tsx'
 import { useDebug } from '../hooks/useDebug.ts'
 import { Base64EncodeDecode, BinaryEncodeDecode } from '../utils/encoding.ts'
 import { ComboState } from './CreateComboScreen/combo-state.ts'
+import { Disclaimer } from '../components/Disclaimer.tsx'
 
 export const ViewComboScreen: FC = () => {
   const showDebug = useDebug()
@@ -78,6 +79,8 @@ export const ViewComboScreen: FC = () => {
           </a>
         </div>
       }
+
+      <Disclaimer />
     </div>
   )
 }

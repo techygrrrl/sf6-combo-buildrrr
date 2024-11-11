@@ -8,6 +8,7 @@ import {
 import { Character, Move } from '../../combos/models.ts'
 import { CharacterSelect } from '../../components/CharacterSelect/CharacterSelect.tsx'
 import { ComboInfoHeader } from '../../components/ComboInfoHeader.tsx'
+import { Disclaimer } from '../../components/Disclaimer.tsx'
 import { MoveDisplay } from '../../components/MoveDisplay.tsx'
 import { MoveSelect } from '../../components/MoveSelect/MoveSelect.tsx'
 import { ShareLink } from '../../components/ShareLink.tsx'
@@ -73,108 +74,115 @@ export const CreateComboScreen: FC = () => {
   ]
 
   return (
-    <div className="p-4 md:p-8">
-      <div className="md:flex md:flex-row-reverse md:gap-6">
-        <div className="md:w-1/2 p-4 border-2 border-sf6_royalpurple rounded-lg">
-          <h2 className="text-lg font-bold">Character Select</h2>
+    <div>
+      <div className="mb-6">
+        <Disclaimer />
+      </div>
 
-          <div className="mt-3">
-            <CharacterSelect
-              size={80}
-              selected={state.combo.character}
-              characters={characters}
-              onCharacterSelect={handleCharacterSelect}
-            />
+      <div className="p-4 md:p-8">
+        <div className="md:flex md:flex-row-reverse md:gap-6">
+          <div className="md:w-1/2 p-4 border-2 border-sf6_royalpurple rounded-lg">
+            <h2 className="text-lg font-bold">Character Select</h2>
 
-            <textarea
-              className={classNames(
-                'w-full h-28 mt-4 bg-transparent border-2 border-sf6_royalpurple outline-none focus:border-sf6_lightpurple rounded-md px-3 py-2',
-                {
-                  'focus:border-cmyk_red': !noteIsValid,
-                },
-              )}
-              placeholder="Add a note for this combo..."
-              value={formNote}
-              onChange={(e) => setFormNote(e.target.value)}
-            />
-
-            <div className="flex items-center gap-3 mt-1">
-              <button
-                className="bg-sf6_royalpurple hover:bg-sf6_mediumpurple px-3 py-2 text-white text-sm rounded-md"
-                disabled={!noteIsValid}
-                onClick={() => handleSetNote()}
-              >
-                Add note
-              </button>
-
-              <span
-                className={classNames('text-white/60 text-sm', {
-                  'text-cmyk_red': !noteIsValid,
-                })}
-              >
-                {remainingChars} / {NOTE_MAX_CHARS}
-              </span>
-            </div>
-
-            <div className="mt-6">
-              <h2 className="text-lg font-bold">Move Select</h2>
-              <MoveSelect
-                moves={moves}
-                onMoveSelect={handleAddMove}
-                inputSize={30}
+            <div className="mt-3">
+              <CharacterSelect
+                size={77}
+                selected={state.combo.character}
+                characters={characters}
+                onCharacterSelect={handleCharacterSelect}
               />
-            </div>
-          </div>
-        </div>
 
-        <div className="md:w-1/2 mt-8 md:mt-0">
-          <ComboInfoHeader
-            avatarSize={160}
-            character={comboCharacter}
-            notes={state.notes}
-          />
+              <textarea
+                className={classNames(
+                  'w-full h-28 mt-4 bg-transparent border-2 border-sf6_royalpurple outline-none focus:border-sf6_lightpurple rounded-md px-3 py-2',
+                  {
+                    'focus:border-cmyk_red': !noteIsValid,
+                  },
+                )}
+                placeholder="Add a note for this combo..."
+                value={formNote}
+                onChange={(e) => setFormNote(e.target.value)}
+              />
 
-          <section className="mt-4">
-            {state.combo.moves.map((move, idx) => (
-              <div
-                key={`${move.name}-${idx}`}
-                onClick={() => handleRemoveMoveAtIndex(idx)}
-                className="relative group cursor-pointer flex justify-between items-center bg-sf6_royalpurple/30 hover:bg-cmyk_red/30 py-3 px-4 rounded-md mb-2"
-              >
-                <MoveDisplay move={move} size={40} />
+              <div className="flex items-center gap-3 mt-1">
+                <button
+                  className="bg-sf6_royalpurple hover:bg-sf6_mediumpurple px-3 py-2 text-white text-sm rounded-md"
+                  disabled={!noteIsValid}
+                  onClick={() => handleSetNote()}
+                >
+                  Add note
+                </button>
 
-                <span className="hidden group-hover:block text-cmyk_red font-bold absolute right-4 bottom-4">
-                  Remove
+                <span
+                  className={classNames('text-white/60 text-sm', {
+                    'text-cmyk_red': !noteIsValid,
+                  })}
+                >
+                  {remainingChars} / {NOTE_MAX_CHARS}
                 </span>
               </div>
-            ))}
-          </section>
 
-          {
-            state.combo.moves.length ?
-              <div className="my-10 p-4 md:p-6 bg-sf6_royalpurple/20 rounded-lg">
-                <p className="font-bold text-lg">Share this combo</p>
-                {encodedComboLinks.map(({ url, name }) => (
-                  <div
-                    key={name}
-                    className="py-6 last:pb-0 border-b border-sf6_lightpurple/50 last:border-0"
-                  >
-                    <ShareLink
-                      description={name}
-                      url={url}
-                      title={state.notes || comboCharacter.name + ' Combo'}
-                    />
-                  </div>
-                ))}
+              <div className="mt-6">
+                <h2 className="text-lg font-bold">Move Select</h2>
+                <MoveSelect
+                  moves={moves}
+                  onMoveSelect={handleAddMove}
+                  inputSize={30}
+                />
               </div>
-              // Empty state
-            : <div>
-                <p className="text-center py-8">
-                  Pick a character and some moves to start building your combo.
-                </p>
-              </div>
+            </div>
+          </div>
 
-          }
+          <div className="md:w-1/2 mt-8 md:mt-0">
+            <ComboInfoHeader
+              avatarSize={160}
+              character={comboCharacter}
+              notes={state.notes}
+            />
+
+            <section className="mt-4">
+              {state.combo.moves.map((move, idx) => (
+                <div
+                  key={`${move.name}-${idx}`}
+                  onClick={() => handleRemoveMoveAtIndex(idx)}
+                  className="relative group cursor-pointer flex justify-between items-center bg-sf6_royalpurple/30 hover:bg-cmyk_red/30 py-3 px-4 rounded-md mb-2"
+                >
+                  <MoveDisplay move={move} size={40} />
+
+                  <span className="hidden group-hover:block text-cmyk_red font-bold absolute right-4 bottom-4">
+                    Remove
+                  </span>
+                </div>
+              ))}
+            </section>
+
+            {
+              state.combo.moves.length ?
+                <div className="my-10 p-4 md:p-6 bg-sf6_royalpurple/20 rounded-lg">
+                  <p className="font-bold text-lg">Share this combo</p>
+                  {encodedComboLinks.map(({ url, name }) => (
+                    <div
+                      key={name}
+                      className="py-6 last:pb-0 border-b border-sf6_lightpurple/50 last:border-0"
+                    >
+                      <ShareLink
+                        description={name}
+                        url={url}
+                        title={state.notes || comboCharacter.name + ' Combo'}
+                      />
+                    </div>
+                  ))}
+                </div>
+                // Empty state
+              : <div>
+                  <p className="text-center  py-8">
+                    Pick a character and some moves to start building your
+                    combo.
+                  </p>
+                </div>
+
+            }
+          </div>
         </div>
       </div>
     </div>

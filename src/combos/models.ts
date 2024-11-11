@@ -37,8 +37,12 @@ export type Combo = {
   // todo: other conditions? e.g. corner, etc.
 }
 
+export type AugmentedCharacter = Character & {
+  disabled?: boolean
+}
+
 export type CombosDataSource = {
-  characters: Character[]
+  characters: AugmentedCharacter[]
   moves: {
     [key: CharacterId]: Move[]
   }

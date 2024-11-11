@@ -86,7 +86,6 @@ const commonInputs = {
 const getCommonDriveMoves = (): Move[] => {
   return [
     {
-      // character,
       name: 'Parry Drive Rush',
       helpText: 'During a drive parry',
       resources: {
@@ -102,7 +101,6 @@ const getCommonDriveMoves = (): Move[] => {
       width: 50,
     },
     {
-      // character,
       name: 'Drive Rush Cancel',
       helpText: 'While connecting with a special cancellable move',
       resources: {
@@ -120,7 +118,6 @@ const getCommonDriveMoves = (): Move[] => {
       width: 50,
     },
     {
-      // character,
       name: 'Drive Impact',
       helpText: '',
       resources: {
@@ -137,7 +134,6 @@ const getCommonButtonMoves = (): Move[] => {
     // Standing
     // 5LP
     {
-      // character,
       name: 'Standing light punch',
       helpText: '',
       resources: {
@@ -150,7 +146,6 @@ const getCommonButtonMoves = (): Move[] => {
 
     // 5MP
     {
-      // character,
       name: 'Standing medium punch',
       helpText: '',
       resources: {
@@ -163,7 +158,6 @@ const getCommonButtonMoves = (): Move[] => {
 
     // 5HP
     {
-      // character,
       name: 'Standing heavy punch',
       helpText: '',
       resources: {
@@ -176,7 +170,6 @@ const getCommonButtonMoves = (): Move[] => {
 
     // 5LK
     {
-      // character,
       name: 'Standing light kick',
       helpText: '',
       resources: {
@@ -189,7 +182,6 @@ const getCommonButtonMoves = (): Move[] => {
 
     // 5MK
     {
-      // character,
       name: 'Standing medium kick',
       helpText: '',
       resources: {
@@ -202,7 +194,6 @@ const getCommonButtonMoves = (): Move[] => {
 
     // 5HK
     {
-      // character,
       name: 'Standing heavy kick',
       helpText: '',
       resources: {
@@ -217,7 +208,6 @@ const getCommonButtonMoves = (): Move[] => {
 
     // 2LP
     {
-      // character,
       name: 'Crouching light punch',
       helpText: '',
       resources: {
@@ -230,7 +220,6 @@ const getCommonButtonMoves = (): Move[] => {
 
     // 2MP
     {
-      // character,
       name: 'Crouching medium punch',
       helpText: '',
       resources: {
@@ -243,7 +232,6 @@ const getCommonButtonMoves = (): Move[] => {
 
     // 2HP
     {
-      // character,
       name: 'Crouching heavy punch',
       helpText: '',
       resources: {
@@ -256,7 +244,6 @@ const getCommonButtonMoves = (): Move[] => {
 
     // 2LK
     {
-      // character,
       name: 'Crouching light kick',
       helpText: '',
       resources: {
@@ -269,7 +256,6 @@ const getCommonButtonMoves = (): Move[] => {
 
     // 2MK
     {
-      // character,
       name: 'Crouching medium kick',
       helpText: '',
       resources: {
@@ -282,7 +268,6 @@ const getCommonButtonMoves = (): Move[] => {
 
     // 2HK
     {
-      // character,
       name: 'Crouching heavy kick',
       helpText: '',
       resources: {
@@ -309,93 +294,130 @@ const combosDataSource: CombosDataSource = {
       id: 'juri',
       name: 'Juri',
     },
-    // {
-    //   id: 'aki',
-    //   name: 'A.K.I.',
-    // },
-    // {
-    //   id: 'chunli',
-    //   name: 'Chun-Li',
-    // },
-    // {
-    //   id: 'kimberly',
-    //   name: 'Kimberly',
-    // },
-    // {
-    //   id: 'marisa',
-    //   name: 'Marisa',
-    // },
-    // {
-    //   id: 'lily',
-    //   name: 'Lily',
-    // },
-    // {
-    //   id: 'gouki',
-    //   name: 'Akuma',
-    // },
-    // {
-    //   id: 'vega',
-    //   name: 'M. Bison',
-    // },
-    // {
-    //   id: 'blanka',
-    //   name: 'Blanka',
-    // },
-    // {
-    //   id: 'deejay',
-    //   name: 'DeeJay',
-    // },
-    // {
-    //   id: 'dhalsim',
-    //   name: 'Dhalsim',
-    // },
-    // {
-    //   id: 'ed',
-    //   name: 'Ed',
-    // },
-    // {
-    //   id: 'guile',
-    //   name: 'Guile',
-    // },
-    // {
-    //   id: 'honda',
-    //   name: 'E. Honda',
-    // },
-    // {
-    //   id: 'jamie',
-    //   name: 'Jamie',
-    // },
-    // {
-    //   id: 'jp',
-    //   name: 'JP',
-    // },
-    // {
-    //   id: 'ken',
-    //   name: 'Ken',
-    // },
-    // {
-    //   id: 'luke',
-    //   name: 'Luke',
-    // },
-    // {
-    //   id: 'rashid',
-    //   name: 'Rashid',
-    // },
-    // {
-    //   id: 'ryu',
-    //   name: 'Ryu',
-    // },
-    // {
-    //   id: 'terry',
-    //   name: 'Terry',
-    // },
-    // {
-    //   id: 'zangief',
-    //   name: 'Zangief',
-    // },
+    {
+      id: 'aki',
+      name: 'A.K.I.',
+      disabled: true,
+    },
+    {
+      id: 'chunli',
+      name: 'Chun-Li',
+      disabled: true,
+    },
+    {
+      id: 'kimberly',
+      name: 'Kimberly',
+      disabled: true,
+    },
+    {
+      id: 'marisa',
+      name: 'Marisa',
+      disabled: true,
+    },
+    {
+      id: 'lily',
+      name: 'Lily',
+      disabled: true,
+    },
+    {
+      id: 'gouki',
+      name: 'Akuma',
+      disabled: true,
+    },
+    {
+      id: 'vega',
+      name: 'M. Bison',
+      disabled: true,
+    },
+    {
+      id: 'blanka',
+      name: 'Blanka',
+      disabled: true,
+    },
+    {
+      id: 'deejay',
+      name: 'DeeJay',
+      disabled: true,
+    },
+    {
+      id: 'dhalsim',
+      name: 'Dhalsim',
+      disabled: true,
+    },
+    {
+      id: 'ed',
+      name: 'Ed',
+      disabled: true,
+    },
+    {
+      id: 'guile',
+      name: 'Guile',
+      disabled: true,
+    },
+    {
+      id: 'honda',
+      name: 'E. Honda',
+      disabled: true,
+    },
+    {
+      id: 'jamie',
+      name: 'Jamie',
+      disabled: true,
+    },
+    {
+      id: 'jp',
+      name: 'JP',
+      disabled: true,
+    },
+    {
+      id: 'ken',
+      name: 'Ken',
+      disabled: true,
+    },
+    {
+      id: 'luke',
+      name: 'Luke',
+      disabled: true,
+    },
+    {
+      id: 'rashid',
+      name: 'Rashid',
+      disabled: true,
+    },
+    {
+      id: 'ryu',
+      name: 'Ryu',
+      disabled: true,
+    },
+    {
+      id: 'terry',
+      name: 'Terry',
+      disabled: true,
+    },
+    {
+      id: 'zangief',
+      name: 'Zangief',
+      disabled: true,
+    },
   ],
   moves: {
-    manon: [...getCommonButtonMoves()],
+    manon: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
 
     cammy: [
       ...getCommonButtonMoves(),
@@ -1213,6 +1235,384 @@ const combosDataSource: CombosDataSource = {
           commonInputs.KICK,
         ],
       },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    aki: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    chunli: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    kimberly: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    marisa: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    lily: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    gouki: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    vega: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    blanka: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    deejay: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    dhalsim: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    ed: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    guile: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    honda: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    jamie: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    jp: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    ken: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    luke: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    rashid: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    ryu: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    terry: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveMoves(),
+    ],
+
+    zangief: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
 
       ...getCommonDriveMoves(),
     ],
