@@ -81,16 +81,18 @@ const commonInputs = {
   },
   cancel: {
     text: '▶',
-    image: 'arrow_3'
+    image: 'arrow_3',
   },
   or: {
     text: 'or',
-    image: 'key-or'
+    image: 'key-or',
   },
   //todo: neutral, spd, etc.
 }
 
-const getCommonDriveRushMovesForCharacter = (character: CharacterId): Move[] => {
+const getCommonDriveMovesForCharacter = (
+  character: CharacterId,
+): Move[] => {
   return [
     {
       character,
@@ -126,8 +128,20 @@ const getCommonDriveRushMovesForCharacter = (character: CharacterId): Move[] => 
       ],
       width: 50,
     },
+    {
+      character,
+      name: 'Drive Impact',
+      helpText: '',
+      resources: {
+        drive: 1,
+        super: 0,
+      },
+      inputs: [
+        commonInputs.HEAVY_PUNCH,
+        commonInputs.HEAVY_KICK,
+      ],
+    },
   ]
-
 }
 
 const getCommonButtonMovesForCharacter = (character: CharacterId): Move[] => {
@@ -393,12 +407,87 @@ const combosDataSource: CombosDataSource = {
     // },
   ],
   moves: {
-    manon: [
-      ...getCommonButtonMovesForCharacter('manon'),
-    ],
+    manon: [...getCommonButtonMovesForCharacter('manon')],
 
     cammy: [
       ...getCommonButtonMovesForCharacter('cammy'),
+
+      // Unique moves
+      {
+        character: 'cammy',
+        name: 'Lift Uppercut',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Delayed Ripper',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Assault Blade',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Lift Combination',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Swing Combination',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.HEAVY_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+
+
+      // Specials
 
       // Spiral Arrow (LK)
       {
@@ -409,6 +498,7 @@ const combosDataSource: CombosDataSource = {
           drive: 0,
           super: 0,
         },
+        width: 33.333,
         inputs: [
           commonInputs.motion_DOWN,
           commonInputs.motion_DOWN_FORWARD,
@@ -427,6 +517,7 @@ const combosDataSource: CombosDataSource = {
           drive: 0,
           super: 0,
         },
+        width: 33.333,
         inputs: [
           commonInputs.motion_DOWN,
           commonInputs.motion_DOWN_FORWARD,
@@ -445,6 +536,7 @@ const combosDataSource: CombosDataSource = {
           drive: 0,
           super: 0,
         },
+        width: 33.333,
         inputs: [
           commonInputs.motion_DOWN,
           commonInputs.motion_DOWN_FORWARD,
@@ -452,6 +544,326 @@ const combosDataSource: CombosDataSource = {
           commonInputs.plus,
           commonInputs.HEAVY_KICK,
         ],
+      },
+      {
+        character: 'cammy',
+        name: 'Spiral Arrow (H) (charged)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+
+      // DP
+      {
+        character: 'cammy',
+        name: 'Cannon Spike (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Cannon Spike (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Cannon Spike (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Cannon Spike (H) (charged)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+
+      {
+        character: 'cammy',
+        name: 'Quick Spin Knuckle (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Quick Spin Knuckle (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Quick Spin Knuckle (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Quick Spin Knuckle (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+      // dive kick
+      {
+        character: 'cammy',
+        name: 'Cannon Strike',
+        helpText: 'During a forward jump',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Cannon Strike (OD)',
+        helpText: 'During a forward jump',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Hooligan Combination (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Hooligan Combination (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Hooligan Combination (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Hooligan Combination (H) (charged)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: 'Hooligan Combination (OD)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        character: 'cammy',
+        name: "Razor's Edge Slicer",
+        helpText: 'During Hooligan Combination',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [],
+      },
+      {
+        character: 'cammy',
+        name: 'Hooligan Cannon Strike',
+        helpText: 'During Hooligan Combination',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [commonInputs.KICK],
+      },
+      {
+        character: 'cammy',
+        name: 'Reverse Edge',
+        helpText: 'During Hooligan Combination',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [commonInputs.motion_DOWN, commonInputs.KICK],
+      },
+      {
+        character: 'cammy',
+        name: 'Fatal Leg Twister',
+        helpText: 'During Hooligan Combination',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [commonInputs.LIGHT_PUNCH, commonInputs.LIGHT_KICK],
       },
 
       // Supers
@@ -531,6 +943,8 @@ const combosDataSource: CombosDataSource = {
           commonInputs.PUNCH,
         ],
       },
+
+      ...getCommonDriveMovesForCharacter('cammy'),
     ],
 
     juri: [
@@ -864,46 +1278,9 @@ const combosDataSource: CombosDataSource = {
         ],
       },
 
-      ...getCommonDriveRushMovesForCharacter('juri'),
+      ...getCommonDriveMovesForCharacter('juri'),
     ],
   },
-}
-
-const move: Move = {
-  character: 'cammy',
-  name: 'Spiral Arrow (M)',
-  helpText: '',
-  resources: {
-    drive: 0,
-    super: 0,
-  },
-  inputs: [
-    {
-      text: '↓',
-      image: 'key-d',
-    },
-    {
-      text: 'HP',
-      image: 'icon_punch_h',
-    },
-    /*{
-      text: '↘',
-      image: 'key-dr',
-    },
-    {
-      text: '→',
-      image: 'key-r',
-    },
-    {
-      text: '+',
-      image: 'key-plus',
-    },
-    {
-      text: 'MK',
-      image: 'icon_kick_m',
-      suffix: 'M',
-    },*/
-  ],
 }
 
 export const getAllCharacters = (): Character[] => {
@@ -916,52 +1293,4 @@ export const findCharacter = (id: CharacterId): Character => {
 
 export const getAllMovesForCharacter = (id: CharacterId): Move[] => {
   return combosDataSource.moves[id]
-}
-
-export const getSampleCombo = (): Combo => {
-  return {
-    character: 'cammy',
-    moves: [
-      // 2HP
-      {
-        character: 'cammy',
-        name: 'Crouching heavy punch',
-        helpText: '',
-        resources: {
-          drive: 0,
-          super: 0,
-        },
-        inputs: [commonInputs.motion_DOWN, commonInputs.HEAVY_PUNCH],
-      },
-
-      // 2MP
-      {
-        character: 'cammy',
-        name: 'Crouching medium punch',
-        helpText: '',
-        resources: {
-          drive: 0,
-          super: 0,
-        },
-        inputs: [commonInputs.motion_DOWN, commonInputs.MEDIUM_PUNCH],
-      },
-
-      // HK Spiral Arrow
-      {
-        character: 'cammy',
-        name: 'Spiral Arrow (H)',
-        helpText: '',
-        resources: {
-          drive: 0,
-          super: 0,
-        },
-        inputs: [
-          commonInputs.motion_DOWN,
-          commonInputs.motion_DOWN_FORWARD,
-          commonInputs.motion_FORWARD,
-          commonInputs.HEAVY_KICK,
-        ],
-      },
-    ],
-  }
 }

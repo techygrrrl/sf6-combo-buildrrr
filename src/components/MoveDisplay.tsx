@@ -8,16 +8,16 @@ type MoveDisplayProps = {
 
 export const MoveDisplay: FC<MoveDisplayProps> = ({ size, move }) => {
   return (
-    <div key={move.name} className="relative">
+    <div key={move.name} className="relative w-full">
       {move.resources.drive || move.resources.super ?
         <div className="absolute top-0 right-0">
           {move.resources.drive ?
-            <span className='flex gap-2 items-center'>
+            <span className="flex gap-2 items-center">
               <div className="w-8 h-4 bg-cmyk_green" /> {move.resources.drive}
             </span>
           : null}
           {move.resources.super ?
-            <span className='flex gap-2 items-center'>
+            <span className="flex gap-2 items-center">
               <div className="w-8 h-4 bg-cmyk_pink" /> {move.resources.super}
             </span>
           : null}
@@ -27,6 +27,9 @@ export const MoveDisplay: FC<MoveDisplayProps> = ({ size, move }) => {
       <p className="font-bold my-1">{move.name}</p>
 
       <div className="flex items-start gap-1">
+        {move.inputs.length === 0 ?
+          <p>(No input)</p>
+        : null}
         {move.inputs.map((input, idx) => (
           <div key={`${input.image}-${idx}`} className="flex items-start">
             {input.prefix}

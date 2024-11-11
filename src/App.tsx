@@ -30,7 +30,7 @@ function App() {
     return findCharacter(combo.character)
   }, [combo])
   // const characters = getAllCharacters()
-  // const combo = getSampleCombo()
+
   //
   // const currentCharacter = findCharacter(combo.character)
   //

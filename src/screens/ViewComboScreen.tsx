@@ -5,11 +5,12 @@ import { ComboInfoHeader } from '../components/ComboInfoHeader.tsx'
 import { MoveDisplay } from '../components/MoveDisplay.tsx'
 import { base64DecodeJson } from '../utils/base64.ts'
 import { ComboState } from './CreateComboScreen/combo-state.ts'
+import { useDebug } from '../hooks/useDebug.ts'
 
 export const ViewComboScreen: FC = () => {
+  const showDebug = useDebug()
   const { encodedCombo } = useParams()
 
-  // const combo = getSampleCombo()
   const comboState: ComboState | null = useMemo(() => {
     if (!encodedCombo) return null
 
@@ -53,13 +54,17 @@ export const ViewComboScreen: FC = () => {
           ))}
         </div>
 
-        <hr className="divider my-20" />
-
-        <div className="font-mono">
-          <h2 className='text-2xl font-bold'>Debug</h2>
-          <pre>{JSON.stringify(comboState, null, 2)}</pre>
-        </div>
+        {showDebug ?
+          <hr className="divider my-20" />
+        : null}
       </div>
+
+      {showDebug ?
+        <div className="font-mono overflow-x-scroll">
+          <h2 className="text-2xl font-bold">Debug</h2>
+          <pre className="">{JSON.stringify(comboState, null, 2)}</pre>
+        </div>
+      : null}
     </div>
   )
 }

@@ -130,11 +130,11 @@ export const CreateComboScreen: FC = () => {
               <div
                 key={`${move.name}-${idx}`}
                 onClick={() => handleRemoveMoveAtIndex(idx)}
-                className="group cursor-pointer flex justify-between items-center bg-sf6_royalpurple/30 hover:bg-cmyk_red/30 py-3 px-4 rounded-md mb-2"
+                className="relative group cursor-pointer flex justify-between items-center bg-sf6_royalpurple/30 hover:bg-cmyk_red/30 py-3 px-4 rounded-md mb-2"
               >
                 <MoveDisplay move={move} size={40} />
 
-                <span className="hidden group-hover:block text-cmyk_red font-bold">
+                <span className="hidden group-hover:block text-cmyk_red font-bold absolute right-4 bottom-4">
                   Remove
                 </span>
               </div>
