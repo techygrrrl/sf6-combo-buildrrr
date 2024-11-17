@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        'xxs': ['0.63rem', '1']
+        xxs: ['0.63rem', '1'],
       },
       colors: {
         cmyk_pink: '#ef15bf',

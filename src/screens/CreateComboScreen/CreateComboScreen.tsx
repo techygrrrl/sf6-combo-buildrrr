@@ -43,11 +43,16 @@ export const CreateComboScreen: FC = () => {
       type: 'set-character',
       payload: character.id,
     })
-    localStorage.setItem('sf6-combo-buildrrr.last-selected-character', character.id)
+    localStorage.setItem(
+      'sf6-combo-buildrrr.last-selected-character',
+      character.id,
+    )
   }, [])
 
   useEffect(() => {
-    const characterFromLocalStorage = localStorage.getItem('sf6-combo-buildrrr.last-selected-character')
+    const characterFromLocalStorage = localStorage.getItem(
+      'sf6-combo-buildrrr.last-selected-character',
+    )
     if (characterFromLocalStorage) {
       dispatch({
         type: 'set-character',
@@ -194,8 +199,8 @@ export const CreateComboScreen: FC = () => {
                   <MoveDisplay
                     move={move}
                     size={40}
-                    moveNameDisplay='normal'
-                    helpTextDisplay='normal'
+                    moveNameDisplay="normal"
+                    helpTextDisplay="normal"
                     hideResourceBarMobile={false}
                   />
 
