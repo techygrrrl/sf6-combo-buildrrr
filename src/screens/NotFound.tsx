@@ -1,6 +1,7 @@
 import { FC, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AppHeader } from '../components/AppHeader/AppHeader'
+import { AppFooter } from '../components/AppFooter/AppFooter'
 
 export const NotFoundScreen: FC = () => {
   const navigate = useNavigate()
@@ -24,6 +25,10 @@ export const NotFoundScreen: FC = () => {
           <p className="text-center text-2xl mb-2 font-bold">Not Found</p>
           <p className="text-center">Redirecting...</p>
         </div>
+      </div>
+
+      <div className="mt-6">
+        <AppFooter />
       </div>
     </div>
   )

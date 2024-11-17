@@ -22,6 +22,7 @@ import {
   initialComboState,
 } from './combo-state.ts'
 import { useApiClient } from '../../providers/api-provider/api-hooks.ts'
+import { AppFooter } from '../../components/AppFooter/AppFooter.tsx'
 
 export const CreateComboScreen: FC = () => {
   const currentUser = useAppSelector(selectCurrentUserUser)
@@ -270,6 +271,8 @@ export const CreateComboScreen: FC = () => {
           </div>
         </div>
       </div>
+
+      <AppFooter />
     </div>
   )
 }

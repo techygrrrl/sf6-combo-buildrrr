@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useParams } from 'react-router-dom'
+import { AppFooter } from '../../components/AppFooter/AppFooter.tsx'
 import { AppHeader } from '../../components/AppHeader/AppHeader'
-import { AppVersionDisplay } from '../../components/AppVersionDisplay'
 import { IconTwitch } from '../../components/icons'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { UserCombos } from '../../components/UserCombos/UserCombos'
@@ -59,7 +59,7 @@ export const UserProfileScreen: FC = () => {
         </div>
       </div>
 
-      <AppVersionDisplay />
+      <AppFooter />
     </div>
   )
 }

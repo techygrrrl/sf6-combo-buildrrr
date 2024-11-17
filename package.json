@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "tsc -b && vite build",
+    "build": "npm run appversion && tsc -b && vite build",
     "lint": "sh scripts/lint.sh && eslint .",
     "dev:client": "npm run appversion && vite --port 40078",
     "dev:server": "npm run appversion && npx vercel dev --listen 40077",

@@ -2,17 +2,17 @@ import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { findCharacter } from '../combos/datasource.ts'
 import { ApiCombo } from '../combos/models.ts'
+import { AppFooter } from '../components/AppFooter/AppFooter.tsx'
 import { AppHeader } from '../components/AppHeader/AppHeader.tsx'
 import { ComboInfoHeader } from '../components/ComboInfoHeader.tsx'
 import { LoadingSpinner } from '../components/LoadingSpinner.tsx'
 import { MoveDisplay } from '../components/MoveDisplay.tsx'
 import { useDebug } from '../hooks/useDebug.ts'
+import { useApiClient } from '../providers/api-provider/api-hooks.ts'
 import { useAppSelector } from '../state/hooks/redux-hooks.ts'
 import { selectCurrentUserUser } from '../state/slices/current-user-slice.ts'
 import { Base64EncodeDecode, BinaryEncodeDecode } from '../utils/encoding.ts'
 import { ComboState } from './CreateComboScreen/combo-state.ts'
-import { AppVersionDisplay } from '../components/AppVersionDisplay.tsx'
-import { useApiClient } from '../providers/api-provider/api-hooks.ts'
 
 export const ViewComboScreen: FC = () => {
   const showDebug = useDebug()
@@ -164,7 +164,7 @@ export const ViewComboScreen: FC = () => {
         </a>
       </div>
 
-      <AppVersionDisplay />
+      <AppFooter />
     </div>
   )
 }
