@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { FC, useCallback, useReducer, useState } from 'react'
+import { FC, useCallback, useEffect, useReducer, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   findCharacter,
@@ -7,12 +7,14 @@ import {
   getAllMovesForCharacter,
 } from '../../combos/datasource.ts'
 import { Character, Move } from '../../combos/models.ts'
+import { AppFooter } from '../../components/AppFooter/AppFooter.tsx'
 import { AppHeader } from '../../components/AppHeader/AppHeader.tsx'
 import { CharacterSelect } from '../../components/CharacterSelect/CharacterSelect.tsx'
 import { ComboInfoHeader } from '../../components/ComboInfoHeader.tsx'
 import { MoveDisplay } from '../../components/MoveDisplay.tsx'
 import { MoveSelect } from '../../components/MoveSelect/MoveSelect.tsx'
 import { ShareLink } from '../../components/ShareLink.tsx'
+import { useApiClient } from '../../providers/api-provider/api-hooks.ts'
 import { useAppSelector } from '../../state/hooks/redux-hooks.ts'
 import { selectCurrentUserUser } from '../../state/slices/current-user-slice.ts'
 import { Base64EncodeDecode, BinaryEncodeDecode } from '../../utils/encoding.ts'
@@ -21,8 +23,6 @@ import {
   comboStateReducer,
   initialComboState,
 } from './combo-state.ts'
-import { useApiClient } from '../../providers/api-provider/api-hooks.ts'
-import { AppFooter } from '../../components/AppFooter/AppFooter.tsx'
 
 export const CreateComboScreen: FC = () => {
   const currentUser = useAppSelector(selectCurrentUserUser)
@@ -43,6 +43,17 @@ export const CreateComboScreen: FC = () => {
       type: 'set-character',
       payload: character.id,
     })
+    localStorage.setItem('sf6-combo-buildrrr.last-selected-character', character.id)
+  }, [])
+
+  useEffect(() => {
+    const characterFromLocalStorage = localStorage.getItem('sf6-combo-buildrrr.last-selected-character')
+    if (characterFromLocalStorage) {
+      dispatch({
+        type: 'set-character',
+        payload: characterFromLocalStorage,
+      })
+    }
   }, [])
 
   const handleAddMove = useCallback((move: Move) => {
