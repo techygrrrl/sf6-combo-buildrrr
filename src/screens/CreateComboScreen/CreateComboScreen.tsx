@@ -194,6 +194,8 @@ export const CreateComboScreen: FC = () => {
                   <MoveDisplay
                     move={move}
                     size={40}
+                    moveNameDisplay='normal'
+                    helpTextDisplay='normal'
                     hideResourceBarMobile={false}
                   />
 

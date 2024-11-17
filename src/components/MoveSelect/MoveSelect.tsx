@@ -28,6 +28,8 @@ export const MoveSelect: FC<MoveSelectProps> = ({
             move={move}
             size={inputSize}
             hideResourceBarMobile={true}
+            helpTextDisplay='normal'
+            moveNameDisplay='normal'
           />
         </div>
       ))}

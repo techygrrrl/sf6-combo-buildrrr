@@ -3,6 +3,9 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontSize: {
+        'xxs': ['0.63rem', '1']
+      },
       colors: {
         cmyk_pink: '#ef15bf',
         cmyk_yellow: '#ebef15',
@@ -35,6 +38,7 @@ export default {
         cmyk_grey_2000: '#f2f2f4',
 
         // SF6
+        sf6_darkerpurple: '#080217',
         sf6_darkpurple: '#180644',
         sf6_lightpurple: '#c326c4',
         sf6_mediumpurple: '#7c0994',

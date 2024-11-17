@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { findCharacter } from '../combos/datasource.ts'
@@ -8,6 +9,7 @@ import { ComboInfoHeader } from '../components/ComboInfoHeader.tsx'
 import { LoadingSpinner } from '../components/LoadingSpinner.tsx'
 import { MoveDisplay } from '../components/MoveDisplay.tsx'
 import { useDebug } from '../hooks/useDebug.ts'
+import { useOverlay } from '../hooks/useOverlay.ts'
 import { useApiClient } from '../providers/api-provider/api-hooks.ts'
 import { useAppSelector } from '../state/hooks/redux-hooks.ts'
 import { selectCurrentUserUser } from '../state/slices/current-user-slice.ts'
@@ -82,6 +84,8 @@ export const ViewComboScreen: FC = () => {
       })
   }, [apiClient, isMe, creatorId, encodedCombo, navigate])
 
+  const isOverlay = useOverlay()
+
   if (loading) {
     return <LoadingSpinner />
   }
@@ -96,29 +100,49 @@ export const ViewComboScreen: FC = () => {
 
   return (
     <div>
-      <div className="mb-6">
-        <AppHeader />
-      </div>
+      {isOverlay ? null : (
+        <div className="mb-6">
+          <AppHeader />
+        </div>
+      )}
 
-      <div className="md:py-8">
-        <div className="container">
-          <ComboInfoHeader
-            avatarSize={160}
-            character={currentCharacter}
-            notes={comboState.notes}
-            showNoNotes={false}
-          />
+      <div className={classNames({
+        'md:py-8': !isOverlay,
+      })}>
+        <div
+          className={classNames('', {
+            container: !isOverlay,
+            'py-1 px-1': isOverlay,
+          })}
+        >
+          {isOverlay ? null : (
+            <ComboInfoHeader
+              avatarSize={160}
+              character={currentCharacter}
+              notes={comboState.notes}
+              showNoNotes={false}
+            />
+          )}
 
-          <div className="mt-4">
+          <div
+            className={classNames({
+              'mt-4': !isOverlay,
+            })}
+          >
             {combo.moves.map((move, idx) => (
               <div
                 key={`${idx}-${move.name}`}
-                className="bg-sf6_royalpurple/30 py-3 px-4 rounded-md mb-2"
+                className={classNames('rounded-md', {
+                  'bg-sf6_royalpurple/30 py-3 px-4 mb-2': !isOverlay,
+                  'bg-sf6_darkerpurple/70 py-2 px-2 mb-[3px]': isOverlay,
+                })}
               >
                 <MoveDisplay
                   move={move}
-                  size={40}
-                  hideResourceBarMobile={false}
+                  size={isOverlay ? 19 : 40}
+                  hideResourceBarMobile={isOverlay}
+                  moveNameDisplay={isOverlay ? 'small' : 'normal'}
+                  helpTextDisplay={isOverlay ? 'small' : 'normal'}
                 />
               </div>
             ))}
@@ -129,19 +153,12 @@ export const ViewComboScreen: FC = () => {
           : null}
         </div>
 
-        {
-          showDebug ?
-            <div className="font-mono overflow-x-scroll">
-              <h2 className="text-2xl font-bold">Debug</h2>
-              <pre className="">{JSON.stringify(comboState, null, 2)}</pre>
-            </div>
-            // : <div className="text-center text-xs mt-8">
-            //     <a className="text-cmyk_pink" href={`${location.href}?debug=1`}>
-            //       Debug? Click then scroll 👇
-            //     </a>
-            //   </div>
-          : null
-        }
+        {showDebug ?
+          <div className="font-mono overflow-x-scroll">
+            <h2 className="text-2xl font-bold">Debug</h2>
+            <pre className="">{JSON.stringify(comboState, null, 2)}</pre>
+          </div>
+        : null}
       </div>
 
       {isMe && creatorId ?
@@ -155,16 +172,18 @@ export const ViewComboScreen: FC = () => {
         </div>
       : null}
 
-      <div className="text-center pt-4 pb-14">
-        <a
-          href="/"
-          className="bg-cmyk_pink/60 hover:bg-cmyk_pink font-semibold px-5 py-3 text-white rounded-full"
-        >
-          Create a Combo
-        </a>
-      </div>
+      {isOverlay ? null : (
+        <div className="text-center pt-4 pb-14">
+          <a
+            href="/"
+            className="bg-cmyk_pink/60 hover:bg-cmyk_pink font-semibold px-5 py-3 text-white rounded-full"
+          >
+            Create a Combo
+          </a>
+        </div>
+      )}
 
-      <AppFooter />
+      {isOverlay ? null : <AppFooter />}
     </div>
   )
 }

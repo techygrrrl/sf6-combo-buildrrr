@@ -2,16 +2,22 @@ import classNames from 'classnames'
 import { FC } from 'react'
 import { Move } from '../combos/models'
 
+export type MoveDisplayOption = 'hidden' | 'small' | 'normal'
+
 type MoveDisplayProps = {
   size: number
   move: Move
   hideResourceBarMobile: boolean
+  moveNameDisplay: MoveDisplayOption
+  helpTextDisplay: MoveDisplayOption
 }
 
 export const MoveDisplay: FC<MoveDisplayProps> = ({
   size,
   move,
   hideResourceBarMobile,
+  moveNameDisplay,
+  helpTextDisplay,
 }) => {
   return (
     <div key={move.name} className="relative w-full">
@@ -42,7 +48,11 @@ export const MoveDisplay: FC<MoveDisplayProps> = ({
         </div>
       : null}
 
-      <p className="font-bold my-1">{move.name}</p>
+      {moveNameDisplay === 'hidden' ?
+        null
+      : moveNameDisplay === 'small' ?
+        <p className="text-xxs mb-[6px]">{move.name}</p>
+      : <p className="font-bold mb-1">{move.name}</p>}
 
       <div className="flex items-start gap-1">
         {move.inputs.length === 0 ?
@@ -60,9 +70,11 @@ export const MoveDisplay: FC<MoveDisplayProps> = ({
         ))}
       </div>
 
-      {move.helpText && (
+      {!move.helpText || helpTextDisplay === 'hidden' ?
+        null
+      : helpTextDisplay === 'normal' ?
         <p className="mt-2 text-sm text-white/60">{move.helpText}</p>
-      )}
+      : <p className="mt-[6px] text-xxs text-white/70">{move.helpText}</p>}
     </div>
   )
 }
