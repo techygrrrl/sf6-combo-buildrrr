@@ -5,9 +5,10 @@ import { CharacterAvatar } from '../CharacterAvatar'
 
 type CharacterSelectProps = {
   size: number
-  selected: CharacterId
+  selected: CharacterId | null
   characters: AugmentedCharacter[]
   onCharacterSelect: (c: Character) => void
+  showHelpCTA: boolean
 }
 
 export const CharacterSelect: FC<CharacterSelectProps> = ({
@@ -15,6 +16,7 @@ export const CharacterSelect: FC<CharacterSelectProps> = ({
   selected,
   characters,
   onCharacterSelect,
+  showHelpCTA,
 }) => {
   return (
     <div>
@@ -44,24 +46,27 @@ export const CharacterSelect: FC<CharacterSelectProps> = ({
             <CharacterAvatar character={character} />
           </div>
         ))}
-        <div
-          className="flex items-center bg-sf6_royalpurple/40"
-          style={{
-            width: size,
-            height: size,
-          }}
-        >
-          <p className="text-center text-xs text-white/60 py-2">
-            <a
-              className="text-cmyk_pink"
-              href="https://github.com/techygrrrl/sf6-combo-buildrrr/issues/1"
-              rel="noopener noreferrer nofollow"
-            >
-              Help
-            </a>{' '}
-            add character support
-          </p>
-        </div>
+
+        {showHelpCTA ?
+          <div
+            className="flex items-center bg-sf6_royalpurple/40"
+            style={{
+              width: size,
+              height: size,
+            }}
+          >
+            <p className="text-center text-xs text-white/60 py-2">
+              <a
+                className="text-cmyk_pink"
+                href="https://github.com/techygrrrl/sf6-combo-buildrrr/issues/1"
+                rel="noopener noreferrer nofollow"
+              >
+                Help
+              </a>{' '}
+              add character support
+            </p>
+          </div>
+        : null}
       </div>
     </div>
   )

@@ -6,12 +6,14 @@ type ComboInfoHeaderProps = {
   notes: string
   avatarSize: number
   character: Character
+  showNoNotes: boolean
 }
 
 export const ComboInfoHeader: FC<ComboInfoHeaderProps> = ({
   avatarSize,
   notes,
   character,
+  showNoNotes,
 }) => {
   return (
     <header className="flex items-center">
@@ -26,6 +28,9 @@ export const ComboInfoHeader: FC<ComboInfoHeaderProps> = ({
         <h2 className="text-2xl font-bold ">{character.name} Combo</h2>
 
         <p>{notes}</p>
+        {showNoNotes && !notes ?
+          <p className="text-white/70 italic">(no notes)</p>
+        : null}
       </div>
     </header>
   )

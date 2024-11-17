@@ -1,31 +1,64 @@
-import { FC, useMemo } from 'react'
-import { useParams } from 'react-router-dom'
+import { FC, useCallback, useEffect, useMemo, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { findCharacter } from '../combos/datasource.ts'
+import { ApiCombo } from '../combos/models.ts'
+import { AppHeader } from '../components/AppHeader/AppHeader.tsx'
 import { ComboInfoHeader } from '../components/ComboInfoHeader.tsx'
+import { LoadingSpinner } from '../components/LoadingSpinner.tsx'
 import { MoveDisplay } from '../components/MoveDisplay.tsx'
 import { useDebug } from '../hooks/useDebug.ts'
+import { useAppSelector } from '../state/hooks/redux-hooks.ts'
+import { selectCurrentUserUser } from '../state/slices/current-user-slice.ts'
 import { Base64EncodeDecode, BinaryEncodeDecode } from '../utils/encoding.ts'
 import { ComboState } from './CreateComboScreen/combo-state.ts'
-import { Disclaimer } from '../components/Disclaimer.tsx'
+import { AppVersionDisplay } from '../components/AppVersionDisplay.tsx'
+import { useApiClient } from '../providers/api-provider/api-hooks.ts'
 
 export const ViewComboScreen: FC = () => {
   const showDebug = useDebug()
   const { encodedCombo } = useParams()
+  const apiClient = useApiClient()
+  const navigate = useNavigate()
 
-  const comboState: ComboState | null = useMemo(() => {
-    if (!encodedCombo) return null
+  const [loading, setLoading] = useState(true)
+  const [comboState, setComboState] = useState<ComboState | null>(null)
+  const [creatorId, setCreatorId] = useState<string | null>(null)
 
+  const profile = useAppSelector(selectCurrentUserUser)
+  const isMe = profile?.id && profile?.id === creatorId
+
+  useEffect(() => {
+    if (!encodedCombo) return
+
+    if (encodedCombo.length <= 36) {
+      // This is a short link combo. Let's get it from the backend
+      apiClient
+        .makeGet<ApiCombo>(`/api/combos?id=${encodedCombo}`)
+        .then(({ data }) => {
+          setComboState(data.combo)
+          setCreatorId(data.twitch_user_id)
+        })
+        .finally(() => {
+          setLoading(false)
+        })
+      return
+    }
+
+    // It's a long link combo, let's try to decode it.
     try {
       if (encodedCombo.startsWith('ey')) {
-        return Base64EncodeDecode.decode<ComboState>(encodedCombo)
+        const decoded = Base64EncodeDecode.decode<ComboState>(encodedCombo)
+        setComboState(decoded)
       } else {
-        return BinaryEncodeDecode.decode<ComboState>(encodedCombo)
+        const decoded = BinaryEncodeDecode.decode<ComboState>(encodedCombo)
+        setComboState(decoded)
       }
     } catch (e) {
       console.error(e)
-      return null
+    } finally {
+      setLoading(false)
     }
-  }, [encodedCombo])
+  }, [encodedCombo, navigate, apiClient])
 
   const combo = comboState?.combo ?? null
 
@@ -34,6 +67,24 @@ export const ViewComboScreen: FC = () => {
 
     return findCharacter(combo.character)
   }, [combo])
+
+  const handleDeleteCombo = useCallback(() => {
+    if (!isMe) return
+    if (!creatorId) return
+
+    apiClient
+      .makePost<
+        { success: boolean },
+        null
+      >(`/api/combos/delete?id=${encodedCombo}`, null)
+      .then(() => {
+        navigate(`/u/${creatorId}`)
+      })
+  }, [apiClient, isMe, creatorId, encodedCombo, navigate])
+
+  if (loading) {
+    return <LoadingSpinner />
+  }
 
   if (!currentCharacter || !combo || !comboState) {
     return (
@@ -46,7 +97,7 @@ export const ViewComboScreen: FC = () => {
   return (
     <div>
       <div className="mb-6">
-        <Disclaimer />
+        <AppHeader />
       </div>
 
       <div className="md:py-8">
@@ -55,15 +106,20 @@ export const ViewComboScreen: FC = () => {
             avatarSize={160}
             character={currentCharacter}
             notes={comboState.notes}
+            showNoNotes={false}
           />
 
           <div className="mt-4">
-            {combo.moves.map((move) => (
+            {combo.moves.map((move, idx) => (
               <div
-                key={move.name}
+                key={`${idx}-${move.name}`}
                 className="bg-sf6_royalpurple/30 py-3 px-4 rounded-md mb-2"
               >
-                <MoveDisplay move={move} size={40} hideResourceBarMobile={false} />
+                <MoveDisplay
+                  move={move}
+                  size={40}
+                  hideResourceBarMobile={false}
+                />
               </div>
             ))}
           </div>
@@ -88,6 +144,17 @@ export const ViewComboScreen: FC = () => {
         }
       </div>
 
+      {isMe && creatorId ?
+        <div className="text-center pt-4 pb-14">
+          <button
+            onClick={handleDeleteCombo}
+            className="bg-cmyk_red/60 hover:bg-cmyk_red font-semibold px-5 py-3 text-white rounded-full"
+          >
+            Delete this combo
+          </button>
+        </div>
+      : null}
+
       <div className="text-center pt-4 pb-14">
         <a
           href="/"
@@ -96,6 +163,8 @@ export const ViewComboScreen: FC = () => {
           Create a Combo
         </a>
       </div>
+
+      <AppVersionDisplay />
     </div>
   )
 }
