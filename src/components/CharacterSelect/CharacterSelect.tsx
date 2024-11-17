@@ -35,7 +35,7 @@ export const CharacterSelect: FC<CharacterSelectProps> = ({
             className={classNames('cursor-pointer', {
               'bg-sf6_royalpurple': selected === character.id,
               'hover:bg-sf6_mediumpurple': !character.disabled,
-              'opacity-40': character.disabled,
+              'opacity-20': character.disabled,
               'hover:cursor-not-allowed': character.disabled,
             })}
             onClick={() => {
