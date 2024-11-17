@@ -2,8 +2,8 @@
 
 For information about this project and to learn how to use it, visit the wiki: https://github.com/techygrrrl/sf6-combo-buildrrr/wiki
 
-![](https://private-user-images.githubusercontent.com/88961088/384793583-669cc707-4ed4-4ca8-b380-3a6dfd3f9e70.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzE3NzQwNzUsIm5iZiI6MTczMTc3Mzc3NSwicGF0aCI6Ii84ODk2MTA4OC8zODQ3OTM1ODMtNjY5Y2M3MDctNGVkNC00Y2E4LWIzODAtM2E2ZGZkM2Y5ZTcwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDExMTYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMTE2VDE2MTYxNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTEzM2VkMjA1NTU3N2U5YWU2ZGFjYmUwMDk2YTMwNGE4ZTllYzc0NjIzNGIzNmQ1ZjQ1ODkxZmE1ZTE1ZmRiM2UmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0._HQ7zBMIcJ5bClohzzbjWKtYNSXBKFMrSWe1EsogxYo)
+![](./screenshots/desktop-01.png)
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/4a1ec646-288e-45d5-8fb5-b07678cbb39a" style="margin: 0 auto;" width="400" />
+  <img src="./screenshots/mobile-01.png" style="margin: 0 auto;" width="400" />
 </p>
