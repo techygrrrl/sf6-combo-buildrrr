@@ -1,7 +1,7 @@
 import classNames from 'classnames'
-import { FC, useCallback, useState } from 'react'
+import { FC, useCallback, useMemo, useState } from 'react'
 import { findCharacter, getAllCharacters } from '../../combos/datasource'
-import { ApiCombo, CharacterId } from '../../combos/models'
+import { ApiCombo, Character, CharacterId } from '../../combos/models'
 import { useDebug } from '../../hooks/useDebug'
 import {
   useApiClient,
@@ -26,16 +26,37 @@ export const UserCombos: FC<UserCombosProps> = ({
 }: UserCombosProps) => {
   const apiClient = useApiClient()
   const currentUser = useAppSelector(selectCurrentUserUser)
+  const debug = useDebug()
 
   const isMe = currentUser?.id === userId
-
-  const debug = useDebug()
 
   const { loading, data, error, mutate } = useApiData<{
     combos: ApiCombo[] | null
   }>(`/api/combos/user?id=${userId}`)
 
-  const combos = data?.combos || []
+  const combos = useMemo(() => data?.combos || [], [data?.combos])
+
+  // Character select and filtering of combos
+  const [filteredCharacter, setFilteredCharacter] =
+    useState<CharacterId | null>(null)
+
+  const charactersWithCombos: Character[] = useMemo(() => {
+    const characters = getAllCharacters()
+    const comboCharacters = new Set<CharacterId>()
+    combos.forEach((combo) => {
+      comboCharacters.add(combo.combo.combo.character)
+    })
+
+    return characters.filter((character) => comboCharacters.has(character.id))
+  }, [combos])
+
+  const visibleCombos = useMemo(() => {
+    return combos.filter((combo) => {
+      return filteredCharacter ?
+          combo.combo.combo.character == filteredCharacter
+        : true
+    })
+  }, [combos, filteredCharacter])
 
   const handleDeleteCombo = useCallback(
     (comboId: string) => {
@@ -53,17 +74,6 @@ export const UserCombos: FC<UserCombosProps> = ({
     },
     [apiClient, isMe, mutate],
   )
-
-  const characters = getAllCharacters()
-
-  const [filteredCharacter, setFilteredCharacter] =
-    useState<CharacterId | null>(null)
-
-  const visibleCombos = combos.filter((combo) => {
-    return filteredCharacter ?
-        combo.combo.combo.character == filteredCharacter
-      : true
-  })
 
   return (
     <>
@@ -101,18 +111,16 @@ export const UserCombos: FC<UserCombosProps> = ({
             <CharacterSelect
               size={40}
               selected={filteredCharacter}
-              characters={characters}
+              characters={charactersWithCombos}
               showHelpCTA={false}
               onCharacterSelect={(c) => {
                 setFilteredCharacter((prev) => (prev === c.id ? null : c.id))
               }}
             />
 
-            {!visibleCombos.length ? (
-              <p className="text-center mt-6">
-                No combos for this filter
-              </p>
-            ) : null}
+            {!visibleCombos.length ?
+              <p className="text-center mt-6">No combos for this filter</p>
+            : null}
           </div>
         }
 
