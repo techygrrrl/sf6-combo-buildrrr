@@ -8,6 +8,7 @@ import { AppHeader } from '../components/AppHeader/AppHeader.tsx'
 import { ComboInfoHeader } from '../components/ComboInfoHeader.tsx'
 import { LoadingSpinner } from '../components/LoadingSpinner.tsx'
 import { MoveDisplay } from '../components/MoveDisplay.tsx'
+import { TextMoveDisplay } from '../components/TextMoveDisplay.tsx'
 import { useDebug } from '../hooks/useDebug.ts'
 import { useOverlay } from '../hooks/useOverlay.ts'
 import { useApiClient } from '../providers/api-provider/api-hooks.ts'
@@ -106,9 +107,11 @@ export const ViewComboScreen: FC = () => {
         </div>
       )}
 
-      <div className={classNames({
-        'md:py-8': !isOverlay,
-      })}>
+      <div
+        className={classNames({
+          'md:py-8': !isOverlay,
+        })}
+      >
         <div
           className={classNames('', {
             container: !isOverlay,
@@ -131,7 +134,7 @@ export const ViewComboScreen: FC = () => {
           >
             {combo.moves.map((move, idx) => (
               <div
-                key={`${idx}-${move.name}`}
+                key={`visual-move-${idx}-${move.name}`}
                 className={classNames('rounded-md', {
                   'bg-sf6_royalpurple/30 py-3 px-4 mb-2': !isOverlay,
                   'bg-sf6_darkerpurple/70 py-2 px-2 mb-[3px]': isOverlay,
@@ -171,6 +174,19 @@ export const ViewComboScreen: FC = () => {
           </button>
         </div>
       : null}
+
+      {/* {isOverlay ? null : (
+        <div className="container">
+          <textarea
+            className="w-full selection:bg-cmyk_pink border-2 border-sf6_royalpurple outline-none focus:border-sf6_lightpurple px-3 py-2 bg-sf6_darkerpurple rounded-md p-3 font-mono"
+            // @ts-expect-error This is an input and so this is valid. React's synthetic event doesn't appear to support this.
+            onClick={(e) => e.target.select()}
+            defaultValue={combo.moves
+              .map((move) => move.inputs.map((input) => input.text).join(''))
+              .join(' ')}
+          />
+        </div>
+      )} */}
 
       {isOverlay ? null : (
         <div className="text-center pt-4 pb-14">
