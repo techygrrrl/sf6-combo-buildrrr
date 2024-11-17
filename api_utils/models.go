@@ -19,8 +19,8 @@ type Move struct {
 }
 
 type MoveResources struct {
-	Drive int `json:"drive"`
-	Super int `json:"super"`
+	Drive float32 `json:"drive"`
+	Super float32 `json:"super"`
 }
 
 type Input struct {
