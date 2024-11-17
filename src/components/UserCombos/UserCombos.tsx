@@ -107,6 +107,12 @@ export const UserCombos: FC<UserCombosProps> = ({
                 setFilteredCharacter((prev) => (prev === c.id ? null : c.id))
               }}
             />
+
+            {!visibleCombos.length ? (
+              <p className="text-center mt-6">
+                No combos for this filter
+              </p>
+            ) : null}
           </div>
         }
 
