@@ -466,7 +466,6 @@ const combosDataSource: CombosDataSource = {
     {
       id: 'ryu',
       name: 'Ryu',
-      disabled: true,
     },
     {
       id: 'terry',
@@ -1543,6 +1542,22 @@ const combosDataSource: CombosDataSource = {
         ],
       },
       {
+        name: 'Fuhajin (OD)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+      },
+      {
         name: 'Saihasho',
         helpText: '',
         resources: {
@@ -1638,6 +1653,22 @@ const combosDataSource: CombosDataSource = {
           commonInputs.motion_DOWN_FORWARD,
           commonInputs.plus,
           commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Tensenrin (OD)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
         ],
       },
 
@@ -2066,9 +2097,7 @@ const combosDataSource: CombosDataSource = {
           super: 0,
         },
         width: 33.333,
-        inputs: [
-          commonInputs.LIGHT_KICK,
-        ],
+        inputs: [commonInputs.LIGHT_KICK],
       },
       {
         name: 'Shadow Slide',
@@ -2078,9 +2107,7 @@ const combosDataSource: CombosDataSource = {
           super: 0,
         },
         width: 33.333,
-        inputs: [
-          commonInputs.MEDIUM_KICK,
-        ],
+        inputs: [commonInputs.MEDIUM_KICK],
       },
       {
         name: 'Neck Hunter',
@@ -2090,9 +2117,7 @@ const combosDataSource: CombosDataSource = {
           super: 0,
         },
         width: 33.333,
-        inputs: [
-          commonInputs.HEAVY_KICK,
-        ],
+        inputs: [commonInputs.HEAVY_KICK],
       },
       {
         name: 'Arc Step',
@@ -2101,8 +2126,7 @@ const combosDataSource: CombosDataSource = {
           drive: 0,
           super: 0,
         },
-        inputs: [
-        ],
+        inputs: [],
       },
       {
         name: 'Bushin Izuna Otoshi',
@@ -2112,9 +2136,7 @@ const combosDataSource: CombosDataSource = {
           super: 0,
         },
         width: 50,
-        inputs: [
-          commonInputs.PUNCH,
-        ],
+        inputs: [commonInputs.PUNCH],
       },
       {
         name: 'Bushin Hojin Kick',
@@ -2124,9 +2146,7 @@ const combosDataSource: CombosDataSource = {
           super: 0,
         },
         width: 50,
-        inputs: [
-          commonInputs.KICK,
-        ],
+        inputs: [commonInputs.KICK],
       },
       {
         name: 'Vagabond Edge (L)',
@@ -2259,7 +2279,6 @@ const combosDataSource: CombosDataSource = {
         ],
       },
 
-
       // Supers
       {
         name: 'Bushin Beats',
@@ -2288,9 +2307,7 @@ const combosDataSource: CombosDataSource = {
           super: 1,
         },
         width: 33.333,
-        inputs: [
-          commonInputs.KICK,
-        ],
+        inputs: [commonInputs.KICK],
       },
       {
         name: 'Soaring Bushin Scramble',
@@ -2606,16 +2623,542 @@ const combosDataSource: CombosDataSource = {
       ...getCommonButtonMoves(),
 
       // Unique moves
-      // {
-      // },
+      {
+        name: 'Solar Plexus Strike',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+      },
+      {
+        name: 'Short Uppercut',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+      },
+      {
+        name: 'Axe Kick',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+      },
+      {
+        name: 'Whirlwind Kick',
+        helpText: '',
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+      },
+      {
+        name: 'High Double Strike',
+        helpText: '',
+        inputs: [
+          commonInputs.HEAVY_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_KICK,
+        ],
+        width: 50,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+      },
+      {
+        name: 'Fuwa Triple Strike',
+        helpText: '',
+        inputs: [
+          commonInputs.MEDIUM_PUNCH,
+          commonInputs.cancel,
+          commonInputs.LIGHT_KICK,
+          commonInputs.cancel,
+          commonInputs.HEAVY_KICK,
+        ],
+        width: 50,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+      },
+      {
+        name: 'Denjin cancel',
+        helpText: 'From High Double Strike or Fuwa Triple Strike',
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+      },
 
       // Specials
-      // {
-      // },
+      {
+        name: 'Hadoken (L)',
+        helpText: 'Changes when in Denjin Charge state',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+      {
+        name: 'Hadoken (M)',
+        helpText: 'Changes when in Denjin Charge state',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Hadoken (H)',
+        helpText: 'Changes when in Denjin Charge state',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Hadoken (OD)',
+        helpText: 'Changes when in Denjin Charge state',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Shoryuken (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+      {
+        name: 'Shoryuken (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Shoryuken (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Shoryuken (OD)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Tatsumaki Senpu-kyaku (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+      },
+      {
+        name: 'Tatsumaki Senpu-kyaku (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'Tatsumaki Senpu-kyaku (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Tatsumaki Senpu-kyaku (OD)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+      },
+
+      {
+        name: 'Aerial Tatsumaki Senpu-kyaku',
+        helpText: 'During a forward jump',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Aerial Tatsumaki Senpu-kyaku (OD)',
+        helpText: 'During a forward jump',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'High Blade Kick (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+      },
+      {
+        name: 'High Blade Kick (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'High Blade Kick (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'High Blade Kick (H) (charged)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'High Blade Kick (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Hashogeki (L)',
+        helpText: 'Effect changes when in Denjin Charge state',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+      {
+        name: 'Hashogeki (M)',
+        helpText: 'Effect changes when in Denjin Charge state',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Hashogeki (H)',
+        helpText: 'Effect changes when in Denjin Charge state',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Hashogeki (OD)',
+        helpText: 'Effect changes when in Denjin Charge state',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Denjin Charge',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN,
+          commonInputs.PUNCH,
+        ],
+      },
 
       // Supers
-      // {
-      // },
+      {
+        name: 'Shinku Hadoken',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 1,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Shin Hashogeki',
+        helpText:
+          'Hold button to change effect, changes when in Denjin Charge state',
+        resources: {
+          drive: 0,
+          super: 2,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Shin Shoryuken',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 3,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
 
       ...getCommonDriveMoves(),
     ],
