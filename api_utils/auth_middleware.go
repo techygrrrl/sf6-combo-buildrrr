@@ -8,6 +8,7 @@ import (
 	"github.com/gorilla/sessions"
 )
 
+// Authenticate - The real auth function
 func Authenticate(w http.ResponseWriter, r *http.Request) (*DBUser, error) {
 	clientId := os.Getenv("TWITCH_CLIENT_ID")
 	cookieSecret := os.Getenv("COOKIE_SECRET")
@@ -54,3 +55,17 @@ func Authenticate(w http.ResponseWriter, r *http.Request) (*DBUser, error) {
 
 	return dbUser, nil
 }
+
+// Authenticate - for development without actually authenticating
+// func Authenticate(w http.ResponseWriter, r *http.Request) (*DBUser, error) {
+// 	db, err := NewDatabaseClient()
+// 	if err != nil {
+// 		return nil, err
+// 	}
+// 	repo := NewUserRepository(db)
+// 	dbUser, err := repo.FindByTwitchId("1234567") // or your Twitch user ID that corresponds to an entry in your database
+// 	if err != nil {
+// 		return nil, err
+// 	}
+// 	return dbUser, nil
+// }

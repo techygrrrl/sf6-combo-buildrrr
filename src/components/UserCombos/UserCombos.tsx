@@ -66,18 +66,99 @@ export const UserCombos: FC<UserCombosProps> = ({
   })
 
   return (
-    <div>
-      {loading ?
-        <div className="my-4">
-          <LoadingSpinner />
-        </div>
-      : null}
+    <>
+      <div>
+        {loading ?
+          <div className="my-4">
+            <LoadingSpinner />
+          </div>
+        : null}
 
-      {error ?
-        <div className="bg-cmyk_red text-white">
-          <p className="font-bold">Failed to load combo data</p>
-        </div>
-      : null}
+        {error ?
+          <div className="bg-cmyk_red text-white">
+            <p className="font-bold">Failed to load combo data</p>
+          </div>
+        : null}
+
+        {!combos.length && isMe ?
+          <div className="text-center p-6 md:p-8 bg-sf6_royalpurple/20 rounded-lg">
+            <p className="mb-6">No combos yet.</p>
+
+            <a
+              href="/"
+              className="bg-cmyk_pink/60 hover:bg-cmyk_pink font-semibold px-5 py-3 text-white rounded-full inline-block"
+            >
+              Create a Combo
+            </a>
+          </div>
+        : !combos.length ?
+          <div className="text-center p-6 md:p-8 bg-sf6_royalpurple/20 rounded-lg">
+            <p className="">
+              {profile.display_name} doesn't have any combos yet.
+            </p>
+          </div>
+        : <div>
+            <CharacterSelect
+              size={40}
+              selected={filteredCharacter}
+              characters={characters}
+              showHelpCTA={false}
+              onCharacterSelect={(c) => {
+                setFilteredCharacter((prev) => (prev === c.id ? null : c.id))
+              }}
+            />
+          </div>
+        }
+
+        {visibleCombos.map((combo) => {
+          const character = findCharacter(combo.combo.combo.character)
+          return (
+            <div
+              key={combo.slug}
+              className={classNames({
+                relative: isMe,
+              })}
+            >
+              <a
+                href={`/c/${combo.slug}`}
+                className="my-4 p-4 md:p-6 bg-sf6_royalpurple/20 hover:bg-sf6_mediumpurple rounded-lg flex items-center gap-4"
+              >
+                <div
+                  className="bg-sf6_royalpurple rounded-md overflow-hidden flex-none"
+                  style={{ width: 60, height: 60 }}
+                >
+                  <CharacterAvatar character={character} />
+                </div>
+
+                <div className="">
+                  <h2 className="text-2xl font-bold ">
+                    {character.name} Combo
+                  </h2>
+
+                  {debug ?
+                    <p className="text-white/60 text-xs font-mono py-1">
+                      {combo.slug}
+                    </p>
+                  : null}
+
+                  <p>{combo.combo.notes}</p>
+                </div>
+              </a>
+
+              {isMe ?
+                <button
+                  className="text-white bg-cmyk_red/40 hover:bg-cmyk_red font-bold absolute -top-2 -right-2 p-1 rounded-full"
+                  title={`Delete this ${character.name} combo`}
+                  onClick={() => handleDeleteCombo(combo.slug)}
+                >
+                  <IconTrash size={20} />
+                </button>
+              : null}
+            </div>
+          )
+        })}
+      </div>
+
       {debug ?
         <div>
           <hr className="divider my-20" />
@@ -88,77 +169,6 @@ export const UserCombos: FC<UserCombosProps> = ({
           </div>
         </div>
       : null}
-
-      {!combos.length && isMe ?
-        <div className="text-center p-6 md:p-8 bg-sf6_royalpurple/20 rounded-lg">
-          <p className="mb-6">No combos yet.</p>
-
-          <a
-            href="/"
-            className="bg-cmyk_pink/60 hover:bg-cmyk_pink font-semibold px-5 py-3 text-white rounded-full inline-block"
-          >
-            Create a Combo
-          </a>
-        </div>
-      : !combos.length ?
-        <div className="text-center p-6 md:p-8 bg-sf6_royalpurple/20 rounded-lg">
-          <p className="">
-            {profile.display_name} doesn't have any combos yet.
-          </p>
-        </div>
-      : <div>
-          <CharacterSelect
-            size={40}
-            selected={filteredCharacter}
-            characters={characters}
-            showHelpCTA={false}
-            onCharacterSelect={(c) => {
-              setFilteredCharacter((prev) => (prev === c.id ? null : c.id))
-            }}
-          />
-        </div>
-      }
-
-      {visibleCombos.map((combo) => {
-        const character = findCharacter(combo.combo.combo.character)
-        return (
-          <div
-            key={combo.slug}
-            className={classNames({
-              relative: isMe,
-            })}
-          >
-            <a
-              href={`/c/${combo.slug}`}
-              className="my-4 p-4 md:p-6 bg-sf6_royalpurple/20 hover:bg-sf6_mediumpurple rounded-lg flex items-center gap-4"
-            >
-              <div
-                className="bg-sf6_royalpurple rounded-md overflow-hidden flex-none"
-                style={{ width: 60, height: 60 }}
-              >
-                <CharacterAvatar character={character} />
-              </div>
-
-              <div className="">
-                <h2 className="text-2xl font-bold ">{character.name} Combo</h2>
-
-                <p className="text-white/60 text-sm font-mono">{combo.slug}</p>
-                <p>{combo.combo.notes}</p>
-              </div>
-            </a>
-
-            {isMe ?
-              <button
-                className="text-white bg-cmyk_red/40 hover:bg-cmyk_red font-bold absolute -top-2 -right-2 p-1 rounded-full"
-                title={`Delete this ${character.name} combo`}
-                onClick={() => handleDeleteCombo(combo.slug)}
-              >
-                <IconTrash size={20} />
-              </button>
-            : null}
-          </div>
-        )
-      })}
-    </div>
+    </>
   )
 }
