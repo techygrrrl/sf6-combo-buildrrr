@@ -2,6 +2,14 @@ import { Character, CharacterId, CombosDataSource, Move } from './models.ts'
 
 const commonInputs = {
   // motions
+  motion_UP_BACK: {
+    text: '↖',
+    image: 'key-ul',
+  },
+  motion_UP_FORWARD: {
+    text: '↗',
+    image: 'key-ur',
+  },
   motion_UP: {
     text: '↑',
     image: 'key-u',
@@ -203,6 +211,78 @@ const getCommonButtonMoves = (): Move[] => {
       inputs: [commonInputs.HEAVY_KICK],
       width: 33.333,
     },
+    // Jumping
+    // 5LP
+    {
+      name: 'Jumping light punch',
+      helpText: 'During a jump',
+      resources: {
+        drive: 0,
+        super: 0,
+      },
+      inputs: [commonInputs.LIGHT_PUNCH],
+      width: 33.333,
+    },
+
+    // 5MP
+    {
+      name: 'Jumping medium punch',
+      helpText: 'During a jump',
+      resources: {
+        drive: 0,
+        super: 0,
+      },
+      inputs: [commonInputs.MEDIUM_PUNCH],
+      width: 33.333,
+    },
+
+    // 5HP
+    {
+      name: 'Jumping heavy punch',
+      helpText: 'During a jump',
+      resources: {
+        drive: 0,
+        super: 0,
+      },
+      inputs: [commonInputs.HEAVY_PUNCH],
+      width: 33.333,
+    },
+
+    // 5LK
+    {
+      name: 'Jumping light kick',
+      helpText: 'During a jump',
+      resources: {
+        drive: 0,
+        super: 0,
+      },
+      inputs: [commonInputs.LIGHT_KICK],
+      width: 33.333,
+    },
+
+    // 5MK
+    {
+      name: 'Jumping medium kick',
+      helpText: 'During a jump',
+      resources: {
+        drive: 0,
+        super: 0,
+      },
+      inputs: [commonInputs.MEDIUM_KICK],
+      width: 33.333,
+    },
+
+    // 5HK
+    {
+      name: 'Jumping heavy kick',
+      helpText: 'During a jump',
+      resources: {
+        drive: 0,
+        super: 0,
+      },
+      inputs: [commonInputs.HEAVY_KICK],
+      width: 33.333,
+    },
 
     // Crouching
 
@@ -307,7 +387,6 @@ const combosDataSource: CombosDataSource = {
     {
       id: 'kimberly',
       name: 'Kimberly',
-      disabled: true,
     },
     {
       id: 'marisa',
@@ -1696,16 +1775,559 @@ const combosDataSource: CombosDataSource = {
       ...getCommonButtonMoves(),
 
       // Unique moves
-      // {
-      // },
+      {
+        name: 'Water Slicer Slide',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'Windmill Kick',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Hisen Kick',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Step up',
+        helpText: 'After Hisen Kick',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [commonInputs.motion_UP_BACK],
+      },
+      {
+        name: 'Step up',
+        helpText: 'After Hisen Kick',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [commonInputs.motion_UP],
+      },
+      {
+        name: 'Step up',
+        helpText: 'After Hisen Kick',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [commonInputs.motion_UP_FORWARD],
+      },
+      {
+        name: 'Elbow Drop',
+        helpText: 'At peak of forward jump',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Bushin Tiger Fangs',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.MEDIUM_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Bushin Prism Strikes',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.LIGHT_PUNCH,
+          commonInputs.cancel,
+          commonInputs.MEDIUM_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Bushin Hellchain',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.LIGHT_PUNCH,
+          commonInputs.cancel,
+          commonInputs.MEDIUM_PUNCH,
+          commonInputs.cancel,
+          commonInputs.motion_DOWN,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Bushin Hellchain Throw',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.LIGHT_PUNCH,
+          commonInputs.cancel,
+          commonInputs.MEDIUM_PUNCH,
+          commonInputs.cancel,
+          commonInputs.motion_DOWN,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+          commonInputs.cancel,
+          commonInputs.motion_DOWN,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
 
       // Specials
-      // {
-      // },
+      {
+        name: 'Bushin Senpukyaku (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+      },
+      {
+        name: 'Bushin Senpukyaku (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'Bushin Senpukyaku (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Aerial Bushin Senpukyaku (L)',
+        helpText: 'During a forward jump',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+      },
+      {
+        name: 'Aerial Bushin Senpukyaku (M)',
+        helpText: 'During a forward jump',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'Aerial Bushin Senpukyaku (H)',
+        helpText: 'During a forward jump',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Sprint',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Sprint (OD)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Torso Cleaver',
+        helpText: 'During Sprint',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.LIGHT_KICK,
+        ],
+      },
+      {
+        name: 'Shadow Slide',
+        helpText: 'During Sprint',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'Neck Hunter',
+        helpText: 'During Sprint',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Arc Step',
+        helpText: 'Automatically activates after getting close with Sprint',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+        ],
+      },
+      {
+        name: 'Bushin Izuna Otoshi',
+        helpText: 'During Arc Step (during Sprint)',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Bushin Hojin Kick',
+        helpText: 'During Arc Step (during Sprint)',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Vagabond Edge (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+      {
+        name: 'Vagabond Edge (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Vagabond Edge (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Vagabond Edge (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Hidden Variable',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Hidden Variable (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Nue Twister',
+        helpText: 'During jump when near opponent',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Nue Twister (OD)',
+        helpText: 'During jump when near opponent',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+
 
       // Supers
-      // {
-      // },
+      {
+        name: 'Bushin Beats',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 1,
+        },
+        width: 66.666,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Bushin Thunderous Beats',
+        helpText: 'Hold kick for more damage (1 bomb)',
+        resources: {
+          drive: 0,
+          super: 1,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Soaring Bushin Scramble',
+        helpText: 'During forward jump',
+        resources: {
+          drive: 0,
+          super: 2,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Ninja Star Cypher',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 3,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+      },
 
       ...getCommonDriveMoves(),
     ],
