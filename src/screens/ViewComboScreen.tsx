@@ -164,7 +164,7 @@ export const ViewComboScreen: FC = () => {
         : null}
       </div>
 
-      {isMe && creatorId ?
+      {isMe && creatorId && !isOverlay ?
         <div className="text-center pt-4 pb-14">
           <button
             onClick={handleDeleteCombo}
