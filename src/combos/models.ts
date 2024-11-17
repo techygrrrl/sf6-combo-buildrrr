@@ -1,3 +1,5 @@
+import { ComboState } from '../screens/CreateComboScreen/combo-state'
+
 export type CharacterId = string
 
 export type Character = {
@@ -46,4 +48,11 @@ export type CombosDataSource = {
   moves: {
     [key: CharacterId]: Move[]
   }
+}
+
+export type ApiCombo = {
+  combo: ComboState
+  created_at: string
+  twitch_user_id: string
+  slug: string
 }

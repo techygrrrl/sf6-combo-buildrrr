@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Env
+.envrc
+src/utils/generated-version.ts
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,3 +26,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.vercel

@@ -2,21 +2,11 @@ import { FC } from 'react'
 
 export const Disclaimer: FC = () => {
   return (
-    <div className="p-2 bg-cmyk_pink/60 text-center">
+    <a href="#site-footer" className="p-2 bg-cmyk_pink/60 text-center block">
       <p className="text-white text-sm">
-        This website{' '}
-        <strong>
-          <a
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            href="https://github.com/techygrrrl/sf6-combo-buildrrr"
-          >
-            sf6-combo-buildrrr
-          </a>
-        </strong>{' '}
-        is a fan-created tool and isn't affiliated with Capcom or SF6 in any
-        way.
+        This website <strong>sf6-combo-buildrrr</strong> is a fan-created tool
+        for sharing combos and isn't affiliated with Capcom or SF6 in any way.
       </p>
-    </div>
+    </a>
   )
 }

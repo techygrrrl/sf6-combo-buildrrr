@@ -15,7 +15,7 @@ export const ShareLink: FC<ShareLinkProps> = ({ description, url, title }) => {
           type="text"
           className="w-full mt-2 bg-transparent border-2 border-sf6_royalpurple outline-none focus:border-sf6_lightpurple rounded-md px-3 py-2"
           value={url}
-          // @ts-expect-error
+          // @ts-expect-error This is an input and so this is valid. React's synthetic event doesn't appear to support this.
           onClick={(e) => e.target.select()}
           readOnly
         />

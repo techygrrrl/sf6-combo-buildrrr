@@ -24,7 +24,11 @@ export const MoveSelect: FC<MoveSelectProps> = ({
           }}
           onClick={() => onMoveSelect(move)}
         >
-          <MoveDisplay move={move} size={inputSize} hideResourceBarMobile={true} />
+          <MoveDisplay
+            move={move}
+            size={inputSize}
+            hideResourceBarMobile={true}
+          />
         </div>
       ))}
     </div>
