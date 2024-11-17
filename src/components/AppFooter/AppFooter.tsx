@@ -8,7 +8,7 @@ export const AppFooter: FC = () => {
       id="site-footer"
       className="py-3 md:py-10 px-4 md:px-8 bg-sf6_royalpurple/10 mt-6 md:mt-8"
     >
-      <div className="flex items-center justify-center gap-3">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-3">
         <a
           className="text-cmyk_pink flex items-center gap-2 px-4 py-2 rounded-md bg-white/5 hover:bg-white/10"
           href="https://twitch.tv/techygrrrl"
