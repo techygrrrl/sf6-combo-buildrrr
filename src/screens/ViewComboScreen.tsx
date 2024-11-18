@@ -62,7 +62,7 @@ export const ViewComboScreen: FC = () => {
     }
   }, [encodedCombo, navigate, apiClient])
 
-  const combo = comboState?.combo ?? null
+  const combo = comboState?.combo || null
 
   const currentCharacter = useMemo(() => {
     if (!combo) return null
