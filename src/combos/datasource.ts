@@ -1027,6 +1027,7 @@ const combosDataSource: CombosDataSource = {
           drive: 0,
           super: 0,
         },
+        width: 50,
         inputs: [
           commonInputs.motion_DOWN,
           commonInputs.motion_DOWN_FORWARD,
@@ -1042,6 +1043,7 @@ const combosDataSource: CombosDataSource = {
           drive: 2,
           super: 0,
         },
+        width: 50,
         inputs: [
           commonInputs.motion_DOWN,
           commonInputs.motion_DOWN_FORWARD,
@@ -1108,6 +1110,7 @@ const combosDataSource: CombosDataSource = {
           drive: 0,
           super: 0,
         },
+        width: 50,
         inputs: [
           commonInputs.motion_FORWARD,
           commonInputs.motion_DOWN,
@@ -1119,6 +1122,7 @@ const combosDataSource: CombosDataSource = {
       {
         name: 'Cannon Spike (OD)',
         helpText: '',
+        width: 50,
         resources: {
           drive: 2,
           super: 0,
@@ -1351,6 +1355,41 @@ const combosDataSource: CombosDataSource = {
         },
         width: 50,
         inputs: [commonInputs.LIGHT_PUNCH, commonInputs.LIGHT_KICK],
+      },
+
+      // dive kick
+      {
+        name: 'Cannon Strike',
+        helpText: 'During a forward jump',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Cannon Strike (OD)',
+        helpText: 'During a forward jump',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        width: 50,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
       },
 
       // Supers
