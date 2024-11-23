@@ -91,7 +91,7 @@ const commonInputs = {
   // todo: spd, etc.
 }
 
-const getCommonDriveMoves = (): Move[] => {
+const getCommonDriveEtcMoves = (): Move[] => {
   return [
     {
       name: 'Parry Drive Rush',
@@ -128,11 +128,22 @@ const getCommonDriveMoves = (): Move[] => {
     {
       name: 'Drive Impact',
       helpText: '',
+      width: 50,
       resources: {
         drive: 1,
         super: 0,
       },
       inputs: [commonInputs.HEAVY_PUNCH, commonInputs.HEAVY_KICK],
+    },
+    {
+      name: 'Micro-walk',
+      helpText: 'Slight walk forward',
+      width: 50,
+      resources: {
+        drive: 0,
+        super: 0,
+      },
+      inputs: [commonInputs.motion_FORWARD],
     },
   ]
 }
@@ -879,7 +890,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     cammy: [
@@ -1416,7 +1427,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     juri: [
@@ -1763,7 +1774,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     aki: [
@@ -1781,7 +1792,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     chunli: [
@@ -1799,7 +1810,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     kimberly: [
@@ -2346,7 +2357,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     marisa: [
@@ -2364,7 +2375,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     lily: [
@@ -2382,7 +2393,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     gouki: [
@@ -2400,7 +2411,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     vega: [
@@ -2418,7 +2429,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     blanka: [
@@ -2436,7 +2447,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     deejay: [
@@ -2454,7 +2465,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     dhalsim: [
@@ -2472,7 +2483,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     ed: [
@@ -2490,7 +2501,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     guile: [
@@ -2508,7 +2519,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     honda: [
@@ -2526,7 +2537,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     jamie: [
@@ -2544,7 +2555,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     jp: [
@@ -2562,7 +2573,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     ken: [
@@ -2580,7 +2591,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     luke: [
@@ -2598,7 +2609,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     rashid: [
@@ -2616,7 +2627,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     ryu: [
@@ -3160,7 +3171,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     terry: [
@@ -3178,7 +3189,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
 
     zangief: [
@@ -3196,7 +3207,7 @@ const combosDataSource: CombosDataSource = {
       // {
       // },
 
-      ...getCommonDriveMoves(),
+      ...getCommonDriveEtcMoves(),
     ],
   },
 }
