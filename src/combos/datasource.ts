@@ -405,6 +405,10 @@ const combosDataSource: CombosDataSource = {
       disabled: true,
     },
     {
+      id: 'mai',
+      name: 'Mai',
+    },
+    {
       id: 'lily',
       name: 'Lily',
       disabled: true,
@@ -3248,6 +3252,490 @@ const combosDataSource: CombosDataSource = {
 
       ...getCommonDriveEtcMoves(),
     ],
+
+    mai: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      {
+        name: 'Senkotsu Uchi',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Hien Ren Kyaku',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.LIGHT_KICK,
+          commonInputs.cancel,
+          commonInputs.LIGHT_KICK,
+          commonInputs.cancel,
+          commonInputs.LIGHT_KICK,
+        ],
+      },
+      {
+        name: 'Hoshi Kujaku',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Hoshi Kujaku',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+          commonInputs.cancel,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+
+      // Specials
+      // region Kachousen
+      {
+        name: 'Kachousen (L)',
+        helpText: '',
+        width: 33.33,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+      {
+        name: 'Kachousen (M)',
+        helpText: '',
+        width: 33.33,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Kachousen (H)',
+        helpText: '',
+        width: 33.33,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Kachousen (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Midare Kachousen',
+        helpText: 'After a held OD Kachousen. Effect changes when flame is stocked.',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+      // endregion Kachousen
+
+      // region Ryuuenbu
+      {
+        name: 'Ryuuenbu (L)',
+        helpText: 'Effect changes when flame is stocked.',
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+      {
+        name: 'Ryuuenbu (M)',
+        helpText: 'Effect changes when flame is stocked.',
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Ryuuenbu (H)',
+        helpText: 'Effect changes when flame is stocked.',
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Ryuuenbu (OD)',
+        helpText: 'Effect changes when flame is stocked.',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+      // endregion Ryuuenbu
+
+      {
+        name: 'Hissatsu Shinobi Bachi (L)',
+        helpText: 'Effect changes when a flame is stocked',
+        width: 33.33,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+      },
+      {
+        name: 'Hissatsu Shinobi Bachi (M)',
+        helpText: 'Effect changes when a flame is stocked',
+        width: 33.33,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'Hissatsu Shinobi Bachi (H)',
+        helpText: 'Effect changes when a flame is stocked',
+        width: 33.33,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Hissatsu Shinobi Bachi (OD)',
+        helpText: 'Effect changes when a flame is stocked',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+      },
+
+      {
+        name: 'Hishou Ryuuenjin (L)',
+        helpText: 'Effect changes when a flame is stocked',
+        width: 33.33,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+      },
+      {
+        name: 'Hishou Ryuuenjin (M)',
+        helpText: 'Effect changes when a flame is stocked',
+        width: 33.33,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'Hishou Ryuuenjin (H)',
+        helpText: 'Effect changes when a flame is stocked',
+        width: 33.33,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Hishou Ryuuenjin (OD)',
+        helpText: 'Effect changes when a flame is stocked',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+      },
+
+      {
+        name: 'Musasabi no Mai (L)',
+        helpText: 'During a forward jump. Effect changes when flame is stocked.',
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+      {
+        name: 'Musasabi no Mai (M)',
+        helpText: 'During a forward jump. Effect changes when flame is stocked.',
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Musasabi no Mai (H)',
+        helpText: 'During a forward jump. Effect changes when flame is stocked.',
+        width: 33.333,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Musasabi no Mai (OD)',
+        helpText: 'During a forward jump. Effect changes when flame is stocked.',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+
+
+      // Supers
+      {
+        name: 'Kagerou no Mai',
+        helpText: 'Effect changes when flame is stocked',
+        resources: {
+          drive: 0,
+          super: 1,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Chou Hissatsu Shinobi Bachi',
+        helpText: 'Effect changes when flame is stocked',
+        resources: {
+          drive: 0,
+          super: 2,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Air Chou Hissatsu Shinobi Bachi',
+        helpText: 'During a neutral or forward jump. Effect changes when flame is stocked',
+        resources: {
+          drive: 0,
+          super: 2,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Shiranui Ryuu: Enbu Ada Zakura',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 3,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+      },
+
+      ...getCommonDriveEtcMoves(),
+    ]
   },
 }
 

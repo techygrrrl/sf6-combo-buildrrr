@@ -29,7 +29,7 @@ export type ComboActionSetNote = {
 export const initialComboState = (): ComboState => ({
   notes: '',
   combo: {
-    character: 'cammy',
+    character: 'mai',
     moves: [],
   },
 })
