@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import { FC, useCallback, useEffect, useMemo, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import { findCharacter } from '../combos/datasource.ts'
 import { ApiCombo } from '../combos/models.ts'
 import { AppFooter } from '../components/AppFooter/AppFooter.tsx'
@@ -117,6 +117,15 @@ export const ViewComboScreen: FC = () => {
             'py-1 px-1': isOverlay,
           })}
         >
+          {isOverlay ? null : (
+            <NavLink
+              className="text-cmyk_pink text-right mb-2 block"
+              title="The overlay view is optimized for embedding in OBS"
+              to="?overlay=1"
+            >
+              Go to overlay view
+            </NavLink>
+          )}
           {isOverlay ? null : (
             <ComboInfoHeader
               avatarSize={160}
