@@ -15,9 +15,9 @@ export const MoveSelect: FC<MoveSelectProps> = ({
 }) => {
   return (
     <div className="flex flex-wrap justify-between gap-3">
-      {moves.map((move) => (
+      {moves.map((move, idx) => (
         <div
-          key={move.name}
+          key={`move-${move.name}-${idx}`}
           className="bg-sf6_mediumpurple/20 hover:bg-sf6_mediumpurple cursor-pointer py-3 px-4 rounded-md"
           style={{
             width: move.width ? `calc(${move.width}% - 0.5rem)` : '100%',

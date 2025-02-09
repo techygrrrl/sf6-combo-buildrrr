@@ -20,7 +20,7 @@ export const MoveDisplay: FC<MoveDisplayProps> = ({
   helpTextDisplay,
 }) => {
   return (
-    <div key={move.name} className="relative w-full">
+    <div className="relative w-full">
       {move.resources.drive || move.resources.super ?
         <div className="absolute top-0 right-0">
           {move.resources.drive ?
