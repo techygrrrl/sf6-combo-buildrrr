@@ -200,7 +200,7 @@ export const UserCombos: FC<UserCombosProps> = ({
                   <CharacterAvatar character={character} />
                 </div>
 
-                <div className="">
+                <div className="w-full">
                   <h2 className="text-2xl font-bold ">
                     {character.name} Combo
                   </h2>
