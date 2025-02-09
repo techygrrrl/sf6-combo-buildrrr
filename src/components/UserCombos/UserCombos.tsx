@@ -13,8 +13,9 @@ import { useAppSelector } from '../../state/hooks/redux-hooks'
 import { selectCurrentUserUser } from '../../state/slices/current-user-slice'
 import { CharacterAvatar } from '../CharacterAvatar'
 import { CharacterSelect } from '../CharacterSelect/CharacterSelect.tsx'
-import { IconTrash } from '../icons'
+import { IconToggleOff, IconToggleOn, IconTrash } from '../icons'
 import { LoadingSpinner } from '../LoadingSpinner'
+import { MoveDisplay } from '../MoveDisplay.tsx'
 
 type UserCombosProps = {
   userId: string
@@ -32,7 +33,10 @@ export const UserCombos: FC<UserCombosProps> = ({
   const [searchParams, setSearchParams] = useSearchParams()
 
   // Default selected filtered combos
-  const characterIdFromUrl = useMemo(() => searchParams.get('c'), [searchParams])
+  const characterIdFromUrl = useMemo(
+    () => searchParams.get('c'),
+    [searchParams],
+  )
 
   const isMe = currentUser?.id === userId
 
@@ -41,6 +45,9 @@ export const UserCombos: FC<UserCombosProps> = ({
   }>(`/api/combos/user?id=${userId}`)
 
   const combos = useMemo(() => data?.combos || [], [data?.combos])
+
+  // Should show moves
+  const [showMoves, setShowMoves] = useState(false)
 
   // Character select and filtering of combos
   const [filteredCharacter, setFilteredCharacter] =
@@ -104,6 +111,34 @@ export const UserCombos: FC<UserCombosProps> = ({
         {error ?
           <div className="bg-cmyk_red text-white">
             <p className="font-bold">Failed to load combo data</p>
+          </div>
+        : null}
+
+        {combos.length ?
+          <div className="flex items-center justify-end mb-1">
+            <div className="flex items-center gap-4 p-1 bg-sf6_royalpurple/40 rounded text-xs">
+              <span className="px-2 text-white/60">
+                Move display
+              </span>
+
+              <button
+                className="bg-sf6_darkpurple px-2 py-1 rounded"
+                onClick={() => setShowMoves((s) => !s)}
+              >
+                {showMoves ?
+                  <div className="text-sf6_lightpurple flex items-center gap-2">
+                    <span className="text-sf6_lightpurple font-bold">
+                      Visible
+                    </span>
+                    <IconToggleOn size={19} />
+                  </div>
+                : <div className="text-white/60 flex items-center gap-2">
+                    <span className="text-white/60">Hidden</span>
+                    <IconToggleOff size={19} />
+                  </div>
+                }
+              </button>
+            </div>
           </div>
         : null}
 
@@ -177,6 +212,25 @@ export const UserCombos: FC<UserCombosProps> = ({
                   : null}
 
                   <p>{combo.combo.notes}</p>
+
+                  <div className="mt-2">
+                    {showMoves ?
+                      combo.combo.combo.moves.map((move, idx) => (
+                        <div
+                          key={`visual-move-${idx}-${move.name}`}
+                          className="rounded-md bg-sf6_darkerpurple/70 py-2 px-2 mb-1"
+                        >
+                          <MoveDisplay
+                            move={move}
+                            size={19}
+                            hideResourceBarMobile={true}
+                            moveNameDisplay="hidden"
+                            helpTextDisplay="hidden"
+                          />
+                        </div>
+                      ))
+                    : null}
+                  </div>
                 </div>
               </a>
 

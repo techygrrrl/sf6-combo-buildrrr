@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CSS debugging */
+/* * { @apply border border-cmyk_pink bg-cmyk_pink/5; } */
+
 html {
   color-scheme: dark;
 }
