@@ -5,6 +5,7 @@ import { ApiCombo } from '../../combos/models'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { findCharacter } from '../../combos/datasource'
 import { CharacterAvatar } from '../../components/CharacterAvatar'
+import { AppFooter } from '../../components/AppFooter/AppFooter'
 
 export const FeedScreen: FC = () => {
   const { loading, data, error } = useApiData<{
@@ -24,7 +25,9 @@ export const FeedScreen: FC = () => {
           <h2 className="font-bold text-2xl">Latest Combos from the community</h2>
 
           {loading ?
-            <LoadingSpinner />
+            <div className='my-6'>
+              <LoadingSpinner />
+            </div>
           : error ?
             <div className="text-center">
               <h1 className="text-lg font-bold">Error loading feed</h1>
@@ -36,6 +39,7 @@ export const FeedScreen: FC = () => {
 
                 return (
                   <a
+                    key={combo.slug}
                     href={`/c/${combo.slug}`}
                     className="my-4 p-4 md:p-6 bg-sf6_royalpurple/20 hover:bg-sf6_mediumpurple rounded-lg flex items-center gap-4"
                   >
@@ -72,6 +76,8 @@ export const FeedScreen: FC = () => {
           }
         </div>
       </div>
+
+      <AppFooter />
     </div>
   )
 }
