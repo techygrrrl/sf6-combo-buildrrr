@@ -6,6 +6,7 @@ import { CreateComboScreen } from './screens/CreateComboScreen/CreateComboScreen
 import { NotFoundScreen } from './screens/NotFound.tsx'
 import { UserProfileScreen } from './screens/UserProfileScreen/UserProfileScreen.tsx'
 import { ViewComboScreen } from './screens/ViewComboScreen.tsx'
+import { FeedScreen } from './screens/FeedScreen/FeedScreen.tsx'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Route path="/" element={<CreateComboScreen />} />
               <Route path="/u/:userId" element={<UserProfileScreen />} />
               <Route path="/c/:encodedCombo" element={<ViewComboScreen />} />
+              <Route path="/feed" element={<FeedScreen />} />
               <Route path="*" element={<NotFoundScreen />} />
             </Routes>
           </BrowserRouter>

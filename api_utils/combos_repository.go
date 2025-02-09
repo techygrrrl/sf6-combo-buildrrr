@@ -54,6 +54,16 @@ func (c *CombosRepository) FindCombosForUser(twitchId string) ([]DBCombo, error)
 	return combos, nil
 }
 
+func (c *CombosRepository) LatestCombos(limit int, offset int) ([]DBCombo, error) {
+	var combos []DBCombo
+	err := c.db.Select(&combos, "SELECT * from combos ORDER BY created_at DESC LIMIT $1 OFFSET $2", limit, offset)
+	if err != nil {
+		return nil, err
+	}
+
+	return combos, nil
+}
+
 func (c *CombosRepository) GetCombo(slug string) (*DBCombo, error) {
 	var combos []DBCombo
 	err := c.db.Select(&combos, "SELECT * from combos WHERE slug = $1", slug)
