@@ -1,5 +1,6 @@
 import classNames from 'classnames'
-import { FC, useCallback, useMemo, useState } from 'react'
+import { FC, useCallback, useEffect, useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { findCharacter, getAllCharacters } from '../../combos/datasource'
 import { ApiCombo, Character, CharacterId } from '../../combos/models'
 import { useDebug } from '../../hooks/useDebug'
@@ -26,7 +27,12 @@ export const UserCombos: FC<UserCombosProps> = ({
 }: UserCombosProps) => {
   const apiClient = useApiClient()
   const currentUser = useAppSelector(selectCurrentUserUser)
+
   const debug = useDebug()
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  // Default selected filtered combos
+  const characterIdFromUrl = useMemo(() => searchParams.get('c'), [searchParams])
 
   const isMe = currentUser?.id === userId
 
@@ -49,6 +55,17 @@ export const UserCombos: FC<UserCombosProps> = ({
 
     return characters.filter((character) => comboCharacters.has(character.id))
   }, [combos])
+
+  // Auto-filter combos based on ?c=X in the URL
+  useEffect(() => {
+    const validCharacterIds = charactersWithCombos.map((c) => c.id)
+
+    if (characterIdFromUrl && validCharacterIds.includes(characterIdFromUrl)) {
+      setFilteredCharacter(characterIdFromUrl)
+    } else {
+      setFilteredCharacter(null)
+    }
+  }, [charactersWithCombos, characterIdFromUrl])
 
   const visibleCombos = useMemo(() => {
     return combos.filter((combo) => {
@@ -114,7 +131,11 @@ export const UserCombos: FC<UserCombosProps> = ({
               characters={charactersWithCombos}
               showHelpCTA={false}
               onCharacterSelect={(c) => {
-                setFilteredCharacter((prev) => (prev === c.id ? null : c.id))
+                if (c.id === characterIdFromUrl) {
+                  setSearchParams({})
+                } else {
+                  setSearchParams({ c: c.id })
+                }
               }}
             />
 
