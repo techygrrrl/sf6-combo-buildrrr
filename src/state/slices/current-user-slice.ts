@@ -4,10 +4,12 @@ import { createAppSlice } from './app-slice'
 
 type CurrentUserState = {
   user: null | GetUserProfile
+  disclaimerDismissed: boolean
 }
 
 const initialState: CurrentUserState = {
   user: null,
+  disclaimerDismissed: false,
 }
 
 export const currentUserSlice = createAppSlice({
@@ -19,14 +21,26 @@ export const currentUserSlice = createAppSlice({
         state.user = action.payload
       },
     ),
+    setDisclaimerDismissed: create.reducer(
+      (state, action: PayloadAction<boolean>) => {
+        state.disclaimerDismissed = action.payload
+      },
+    ),
   }),
   selectors: {
     selectCurrentUserUser: (state) => state.user,
+    selectDisclaimerDismissed: (state) => state.disclaimerDismissed,
   },
 })
 
 // Selectors
-export const { selectCurrentUserUser } = currentUserSlice.selectors
+export const {
+  selectCurrentUserUser,
+  selectDisclaimerDismissed,
+} = currentUserSlice.selectors
 
 // Actions
-export const { setUser: actionSetCurrentUserUser } = currentUserSlice.actions
+export const {
+  setUser: actionSetCurrentUserUser,
+  setDisclaimerDismissed: actionSetDisclaimerDismissed,
+} = currentUserSlice.actions
