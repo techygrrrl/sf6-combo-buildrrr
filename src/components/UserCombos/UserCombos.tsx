@@ -115,8 +115,8 @@ export const UserCombos: FC<UserCombosProps> = ({
         : null}
 
         {combos.length ?
-          <div className="flex items-center justify-end mb-1">
-            <div className="flex items-center gap-4 p-1 bg-sf6_royalpurple/40 rounded text-xs">
+          <div className="md:flex items-center justify-end mb-4 md:mb-1">
+            <div className="flex justify-between md:justify-normal items-center gap-4 p-1 bg-sf6_royalpurple/40 rounded text-xs">
               <span className="px-2 text-white/60">
                 Move display
               </span>
