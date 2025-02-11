@@ -46,7 +46,7 @@ func (c *CombosRepository) CreateCombo(twitchUserId string, comboJson json.RawMe
 
 func (c *CombosRepository) FindCombosForUser(twitchId string) ([]DBCombo, error) {
 	var combos []DBCombo
-	err := c.db.Select(&combos, "SELECT * from combos WHERE twitch_user_id = $1", twitchId)
+	err := c.db.Select(&combos, "SELECT * from combos WHERE twitch_user_id = $1 ORDER BY created_at DESC", twitchId)
 	if err != nil {
 		return nil, err
 	}

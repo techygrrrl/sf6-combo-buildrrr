@@ -233,6 +233,15 @@ export const UserCombos: FC<UserCombosProps> = ({
                     </p>
                   : null}
 
+                  <p className="text-white/60 text-xs font-mono py-1">
+                    {new Date(combo.created_at).toLocaleDateString('en-CA', {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </p>
+
                   <p>{combo.combo.notes}</p>
                   <div
                     className={classNames('mt-2', {
