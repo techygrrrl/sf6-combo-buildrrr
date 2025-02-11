@@ -1660,6 +1660,58 @@ const combosDataSource: CombosDataSource = {
         ],
       },
 
+      {
+        name: 'Saihasho (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'Ankensatsu (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Go Ohsatsu (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+
       //
       {
         name: 'Tensenrin (L)',
