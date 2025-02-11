@@ -13,7 +13,13 @@ import { useAppSelector } from '../../state/hooks/redux-hooks'
 import { selectCurrentUserUser } from '../../state/slices/current-user-slice'
 import { CharacterAvatar } from '../CharacterAvatar'
 import { CharacterSelect } from '../CharacterSelect/CharacterSelect.tsx'
-import { IconToggleOff, IconToggleOn, IconTrash } from '../icons'
+import {
+  IconThreeDotsHorizontal,
+  IconThreeDotsVertical,
+  IconToggleOff,
+  IconToggleOn,
+  IconTrash,
+} from '../icons'
 import { LoadingSpinner } from '../LoadingSpinner'
 import { MoveDisplay } from '../MoveDisplay.tsx'
 
@@ -48,6 +54,8 @@ export const UserCombos: FC<UserCombosProps> = ({
 
   // Should show moves
   const [showMoves, setShowMoves] = useState(false)
+
+  const [layout, setLayout] = useState<'vertical' | 'horizontal'>('vertical')
 
   // Character select and filtering of combos
   const [filteredCharacter, setFilteredCharacter] =
@@ -117,9 +125,7 @@ export const UserCombos: FC<UserCombosProps> = ({
         {combos.length ?
           <div className="md:flex items-center justify-end mb-4 md:mb-1">
             <div className="flex justify-between md:justify-normal items-center gap-4 p-1 bg-sf6_royalpurple/40 rounded text-xs">
-              <span className="px-2 text-white/60">
-                Move display
-              </span>
+              <span className="px-2 text-white/60">Move display</span>
 
               <button
                 className="bg-sf6_darkpurple px-2 py-1 rounded"
@@ -138,6 +144,22 @@ export const UserCombos: FC<UserCombosProps> = ({
                   </div>
                 }
               </button>
+
+              {showMoves ?
+                <button
+                  className="bg-sf6_darkpurple px-2 py-1 rounded flex items-center gap-2"
+                  onClick={() =>
+                    setLayout((l) =>
+                      l === 'horizontal' ? 'vertical' : 'horizontal',
+                    )
+                  }
+                >
+                  {layout === 'horizontal' ?
+                    <IconThreeDotsHorizontal size={19} />
+                  : <IconThreeDotsVertical size={19} />}
+                  {layout}
+                </button>
+              : null}
             </div>
           </div>
         : null}
@@ -212,13 +234,21 @@ export const UserCombos: FC<UserCombosProps> = ({
                   : null}
 
                   <p>{combo.combo.notes}</p>
-
-                  <div className="mt-2">
+                  <div
+                    className={classNames('mt-2', {
+                      'flex flex-wrap gap-1': layout === 'horizontal',
+                    })}
+                  >
                     {showMoves ?
                       combo.combo.combo.moves.map((move, idx) => (
                         <div
                           key={`visual-move-${idx}-${move.name}`}
-                          className="rounded-md bg-sf6_darkerpurple/70 py-2 px-2 mb-1"
+                          className={classNames(
+                            'rounded-md bg-sf6_darkerpurple/70 py-2 px-2',
+                            {
+                              'mb-1': layout === 'vertical',
+                            },
+                          )}
                         >
                           <MoveDisplay
                             move={move}
@@ -231,6 +261,20 @@ export const UserCombos: FC<UserCombosProps> = ({
                       ))
                     : null}
                   </div>
+
+                  {/* Text moves - These are kinda hideous */}
+                  {/* {showMoves ?
+                    <div className="rounded-md bg-sf6_darkerpurple/40 py-2 px-2 flex flex-wrap items-center gap-2 font-mono">
+                      {combo.combo.combo.moves.map((move, idx) => (
+                        <span
+                          key={`text-move-${idx}-${move.name}`}
+                          className="rounded-md bg-sf6_mediumpurple/60 py-1 px-2"
+                        >
+                          <TextMoveDisplay move={move} />
+                        </span>
+                      ))}
+                    </div>
+                  : null} */}
                 </div>
               </a>
 

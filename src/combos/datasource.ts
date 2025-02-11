@@ -1,6 +1,6 @@
-import { Character, CharacterId, CombosDataSource, Move } from './models.ts'
+import { Character, CharacterId, CombosDataSource, Input, Move } from './models.ts'
 
-const commonInputs = {
+const commonInputs: Record<string, Input> = {
   // motions
   motion_UP_BACK: {
     text: '↖',
