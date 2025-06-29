@@ -1,4 +1,10 @@
-import { Character, CharacterId, CombosDataSource, Input, Move } from './models.ts'
+import {
+  Character,
+  CharacterId,
+  CombosDataSource,
+  Input,
+  Move,
+} from './models.ts'
 
 const commonInputs: Record<string, Input> = {
   // motions
@@ -384,6 +390,10 @@ const combosDataSource: CombosDataSource = {
     {
       id: 'juri',
       name: 'Juri',
+    },
+    {
+      id: 'elena',
+      name: 'Elena',
     },
     {
       id: 'aki',
@@ -1872,6 +1882,604 @@ const combosDataSource: CombosDataSource = {
       ...getCommonDriveEtcMoves(),
     ],
 
+    elena: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      {
+        name: 'Slide',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Round Arch',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Starling Beak',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.MEDIUM_PUNCH,
+          commonInputs.cancel,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Handstand Whip',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'Hind Kick',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.MEDIUM_KICK,
+          commonInputs.cancel,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Fluttering Lark',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+          commonInputs.cancel,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Turning Tail',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.HEAVY_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Trunk Slap',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Soaring Raid',
+        helpText: 'During a jump',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.LIGHT_PUNCH,
+          commonInputs.cancel,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'Raptor Range',
+        helpText: 'During a jump',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.MEDIUM_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+
+      // Specials
+      {
+        name: 'Rhino Horn (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+      },
+
+      // Rhino Horn (MK)
+      {
+        name: 'Rhino Horn (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+
+      // Rhino Horn (HK)
+      {
+        name: 'Rhino Horn (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+
+      // DP
+      {
+        name: 'Scratch Wheel (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+      },
+      {
+        name: 'Scratch Wheel (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'Scratch Wheel (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Scratch Wheel (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
+
+      {
+        name: 'Lynx Song (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+
+      // Lynx Song (MK)
+      {
+        name: 'Lynx Song (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+
+      // Lynx Song (HK)
+      {
+        name: 'Lynx Song (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      // Lynx Song (OD)
+      {
+        name: 'Lynx Song (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+
+      {
+        name: 'Leopard Snap',
+        helpText: 'During Lynx Song',
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+      },
+      {
+        name: 'Harvest Circle',
+        helpText: 'During Lynx Song',
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+      },
+      {
+        name: 'Mallet Smash',
+        helpText: 'During Lynx Song',
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+      },
+      {
+        name: 'Lynx Whirl',
+        helpText: 'During Lynx Song',
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+      },
+
+      {
+        name: 'Spinning Scythe (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+      },
+      {
+        name: 'Spinning Scythe (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'Spinning Scythe (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+      {
+        name: 'Spinning Scythe (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Lynx Whirl',
+        helpText: 'During Spinning Scythe',
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+      },
+      {
+        name: 'Moon Glider (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+      {
+        name: 'Moon Glider (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Moon Glider (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Moon Glider (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Moon Glider (2)',
+        helpText: 'During Moon Glider',
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+      },
+
+      // Supers
+      {
+        name: 'Meteor Volley',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 1,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
+      {
+        name: 'Revival Dance',
+        helpText: 'Hold down to change effect',
+        resources: {
+          drive: 0,
+          super: 2,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+      },
+      {
+        name: 'Song of the Grasslands',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 3,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
+
+      ...getCommonDriveEtcMoves(),
+    ],
+
     aki: [
       ...getCommonButtonMoves(),
 
@@ -2182,10 +2790,9 @@ const combosDataSource: CombosDataSource = {
         name: 'Sprint (OD)',
         helpText: '',
         resources: {
-          drive: 0,
+          drive: 2,
           super: 0,
         },
-        width: 50,
         inputs: [
           commonInputs.motion_DOWN,
           commonInputs.motion_DOWN_FORWARD,
@@ -2942,7 +3549,7 @@ const combosDataSource: CombosDataSource = {
         name: 'Shoryuken (OD)',
         helpText: '',
         resources: {
-          drive: 0,
+          drive: 2,
           super: 0,
         },
         inputs: [
@@ -3006,7 +3613,7 @@ const combosDataSource: CombosDataSource = {
         name: 'Tatsumaki Senpu-kyaku (OD)',
         helpText: '',
         resources: {
-          drive: 0,
+          drive: 2,
           super: 0,
         },
         inputs: [
@@ -3039,7 +3646,7 @@ const combosDataSource: CombosDataSource = {
         name: 'Aerial Tatsumaki Senpu-kyaku (OD)',
         helpText: 'During a forward jump',
         resources: {
-          drive: 0,
+          drive: 2,
           super: 0,
         },
         width: 50,
@@ -3316,10 +3923,7 @@ const combosDataSource: CombosDataSource = {
           drive: 0,
           super: 0,
         },
-        inputs: [
-          commonInputs.motion_FORWARD,
-          commonInputs.MEDIUM_PUNCH,
-        ],
+        inputs: [commonInputs.motion_FORWARD, commonInputs.MEDIUM_PUNCH],
       },
       {
         name: 'Hien Ren Kyaku',
@@ -3433,7 +4037,8 @@ const combosDataSource: CombosDataSource = {
       },
       {
         name: 'Midare Kachousen',
-        helpText: 'After a held OD Kachousen. Effect changes when flame is stocked.',
+        helpText:
+          'After a held OD Kachousen. Effect changes when flame is stocked.',
         resources: {
           drive: 0,
           super: 0,
@@ -3648,7 +4253,8 @@ const combosDataSource: CombosDataSource = {
 
       {
         name: 'Musasabi no Mai (L)',
-        helpText: 'During a forward jump. Effect changes when flame is stocked.',
+        helpText:
+          'During a forward jump. Effect changes when flame is stocked.',
         width: 33.333,
         resources: {
           drive: 0,
@@ -3664,7 +4270,8 @@ const combosDataSource: CombosDataSource = {
       },
       {
         name: 'Musasabi no Mai (M)',
-        helpText: 'During a forward jump. Effect changes when flame is stocked.',
+        helpText:
+          'During a forward jump. Effect changes when flame is stocked.',
         width: 33.333,
         resources: {
           drive: 0,
@@ -3680,7 +4287,8 @@ const combosDataSource: CombosDataSource = {
       },
       {
         name: 'Musasabi no Mai (H)',
-        helpText: 'During a forward jump. Effect changes when flame is stocked.',
+        helpText:
+          'During a forward jump. Effect changes when flame is stocked.',
         width: 33.333,
         resources: {
           drive: 0,
@@ -3696,7 +4304,8 @@ const combosDataSource: CombosDataSource = {
       },
       {
         name: 'Musasabi no Mai (OD)',
-        helpText: 'During a forward jump. Effect changes when flame is stocked.',
+        helpText:
+          'During a forward jump. Effect changes when flame is stocked.',
         resources: {
           drive: 2,
           super: 0,
@@ -3710,7 +4319,6 @@ const combosDataSource: CombosDataSource = {
           commonInputs.PUNCH,
         ],
       },
-
 
       // Supers
       {
@@ -3751,7 +4359,8 @@ const combosDataSource: CombosDataSource = {
       },
       {
         name: 'Air Chou Hissatsu Shinobi Bachi',
-        helpText: 'During a neutral or forward jump. Effect changes when flame is stocked',
+        helpText:
+          'During a neutral or forward jump. Effect changes when flame is stocked',
         resources: {
           drive: 0,
           super: 2,
@@ -3787,7 +4396,7 @@ const combosDataSource: CombosDataSource = {
       },
 
       ...getCommonDriveEtcMoves(),
-    ]
+    ],
   },
 }
 
