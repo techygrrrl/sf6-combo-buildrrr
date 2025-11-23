@@ -2078,6 +2078,25 @@ const combosDataSource: CombosDataSource = {
         ],
       },
 
+      // Rhino Horn (OD)
+      {
+        name: 'Rhino Horn (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        width: 100,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+      },
+
       // DP
       {
         name: 'Scratch Wheel (L)',
