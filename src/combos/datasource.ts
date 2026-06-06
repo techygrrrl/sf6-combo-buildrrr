@@ -4787,6 +4787,7 @@ const combosDataSource: CombosDataSource = {
       // Sun Veil
       {
         name: 'Sun Veil',
+        helpText: '',
         width: 50,
         resources: {
           drive: 0,
@@ -4801,6 +4802,7 @@ const combosDataSource: CombosDataSource = {
       },
       {
         name: 'Sun Veil (OD)',
+        helpText: '',
         width: 50,
         resources: {
           drive: 2,
