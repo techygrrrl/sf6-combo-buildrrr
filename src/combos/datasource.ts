@@ -396,6 +396,10 @@ const combosDataSource: CombosDataSource = {
       name: 'Elena',
     },
     {
+      id: 'ingrid',
+      name: 'Ingrid',
+    },
+    {
       id: 'aki',
       name: 'A.K.I.',
       disabled: true,
@@ -4416,6 +4420,552 @@ const combosDataSource: CombosDataSource = {
 
       ...getCommonDriveEtcMoves(),
     ],
+
+    ingrid: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      {
+        name: 'Sun Bright',
+        helpText: '',
+         resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Halo Flight',
+        helpText: '',
+         resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Pretty Heel Kick',
+        helpText: '',
+         resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.MEDIUM_PUNCH,
+          commonInputs.cancel,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+      {
+        name: 'Glowing Touch',
+        helpText: '',
+         resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+          commonInputs.cancel,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Luminous Uppercut',
+        helpText: '',
+         resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+          commonInputs.cancel,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Satellite Leap',
+        helpText: 'During a jump',
+         resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.HEAVY_KICK,
+          commonInputs.cancel,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+
+      // Specials
+      // Sun Shot (LK)
+      {
+        name: 'Sun Shot (L)',
+        helpText: 'Hold the button to change the effect',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+
+      // Sun Shot (MK)
+      {
+        name: 'Sun Shot (M)',
+        helpText: 'Hold the button to change the effect',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+
+      // Sun Shot (HK)
+      {
+        name: 'Sun Shot (H)',
+        helpText: 'Hold the button to change the effect',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      // Sun Shot (OD)
+      {
+        name: 'Sun Shot (OD)',
+        helpText: 'Hold the button to change the effect',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+
+      // Sun Flare
+      {
+        name: 'Sun Flare (L)',
+        helpText: 'Can be held',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+      {
+        name: 'Sun Flare (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Sun Flare (H)',
+        helpText: 'Sun crests change the effect',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Sun Flare (OD)',
+        helpText: 'Sun crests change the effect',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+
+      // Solar Burst
+      {
+        name: 'Solar Burst (L)',
+        helpText: '(During a neutral or forward jump)',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+      {
+        name: 'Solar Burst (M)',
+        helpText: '(During a neutral or forward jump)',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Solar Burst (H)',
+        helpText: '(During a neutral or forward jump) Sun Crests change the effect',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+      {
+        name: 'Solar Burst (OD)',
+        helpText: '(During a neutral or forward jump) Sun Crests change the effect',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+          commonInputs.PUNCH,
+        ],
+      },
+
+       // Sun Rise (LK)
+      {
+        name: 'Sun Rise (L)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.LIGHT_KICK,
+        ],
+      },
+
+      // Sun Rise (MK)
+      {
+        name: 'Sun Rise (M)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.MEDIUM_KICK,
+        ],
+      },
+
+      // Sun Rise (HK)
+      {
+        name: 'Sun Rise (H)',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        width: 33.333,
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.HEAVY_KICK,
+        ],
+      },
+
+      // Sun Rise (OD)
+      {
+        name: 'Sun Rise (OD)',
+        helpText: '',
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ],
+      },
+
+      // Sun Veil
+      {
+        name: 'Sun Veil',
+        width: 50,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ]
+      },
+      {
+        name: 'Sun Veil (OD)',
+        width: 50,
+        resources: {
+          drive: 2,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ]
+      },
+
+      // Vanishing Sun
+      {
+        name: 'Vanishing Sun',
+        helpText: 'Backwards teleport',
+        width: 33.33333,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ]
+      },
+      {
+        name: 'Vanishing Sun',
+        helpText: 'Aerial teleport',
+        width: 33.33333,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ]
+      },
+      {
+        name: 'Vanishing Sun',
+        helpText: 'Forward teleport',
+        width: 33.33333,
+        resources: {
+          drive: 0,
+          super: 0,
+        },
+        inputs: [
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+          commonInputs.KICK,
+          commonInputs.KICK,
+        ]
+      },
+
+      // Supers
+      {
+        name: 'Shining Sun',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 1,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.KICK,
+        ],
+      },
+
+      // Level 2
+      {
+        name: 'Order of the Sun (L)',
+        helpText: 'Can be held to use 1-2 stocks',
+        width: 33.3333,
+        resources: {
+          drive: 0,
+          super: 2,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.LIGHT_PUNCH,
+        ],
+      },
+      {
+        name: 'Order of the Sun (M)',
+        helpText: 'Can be held to use 1-2 stocks',
+        width: 33.3333,
+        resources: {
+          drive: 0,
+          super: 2,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.MEDIUM_PUNCH,
+        ],
+      },
+      {
+        name: 'Order of the Sun (H)',
+        helpText: 'Can be held to use 1-2 stocks',
+        width: 33.3333,
+        resources: {
+          drive: 0,
+          super: 2,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_BACK,
+          commonInputs.motion_BACK,
+          commonInputs.plus,
+          commonInputs.HEAVY_PUNCH,
+        ],
+      },
+
+
+      {
+        name: 'Cosmic Ray',
+        helpText: '',
+        resources: {
+          drive: 0,
+          super: 3,
+        },
+        inputs: [
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.motion_DOWN,
+          commonInputs.motion_DOWN_FORWARD,
+          commonInputs.motion_FORWARD,
+          commonInputs.plus,
+          commonInputs.PUNCH,
+        ],
+      },
+
+      ...getCommonDriveEtcMoves(),
+    ]
   },
 }
 
