@@ -100,19 +100,28 @@ export const ViewComboScreen: FC = () => {
 
   const isOverlay = useOverlay()
 
-  const displayElement = useMemo(() => {
+  const comboAttributionElement = useMemo(() => {
     if (!creator) return null
 
-    if (creator.username === creator.displayName) {
-      return (
+    const nameDisplayElement =
+      creator.username === creator.displayName ?
         <strong>{creator.username}</strong>
-      )
-    }
+      : <span>
+          <strong>{creator.displayName}</strong> ({creator.username})
+        </span>
 
     return (
-      <span>
-        <strong>{creator.displayName}</strong> ({creator.username})
-      </span>
+      <div className="flex items-center gap-2 my-4 text-white/70 text-xs">
+        <img
+          src={creator?.profileUrl}
+          alt=""
+          className="w-6 h-6 rounded-full"
+        />
+        <span>
+          Combo contributed by{' '}
+          <a href={`/u/${creator?.id}`}>{nameDisplayElement}</a>
+        </span>
+      </div>
     )
   }, [creator])
 
@@ -189,12 +198,7 @@ export const ViewComboScreen: FC = () => {
             ))}
           </div>
 
-          {!isOverlay && creator ? (
-            <div className="flex items-center gap-2 my-4 text-white/70 text-xs">
-              <img src={creator?.profileUrl} alt="" className="w-6 h-6 rounded-full" />
-              <span>Combo contributed by <a href={`/u/${creator?.id}`}>{displayElement}</a></span>
-            </div>
-          ) : null}
+          {isOverlay ? null : comboAttributionElement}
 
           {showDebug ?
             <hr className="divider my-20" />
