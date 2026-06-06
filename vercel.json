@@ -5,12 +5,19 @@
   "framework": null,
   "builds": [
     {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    },
+    {
       "src": "api/**/*.go",
       "use": "@vercel/go"
     }
   ],
   "rewrites": [
-   {
+    {
       "source": "/api/:path*",
       "destination": "/api/:path*"
     },
