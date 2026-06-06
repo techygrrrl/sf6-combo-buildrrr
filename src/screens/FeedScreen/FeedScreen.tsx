@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { AppHeader } from '../../components/AppHeader/AppHeader'
 import { useApiData } from '../../providers/api-provider/api-hooks'
-import { ApiCombo } from '../../combos/models'
+import { ApiComboWithUser } from '../../combos/models'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { findCharacter } from '../../combos/datasource'
 import { CharacterAvatar } from '../../components/CharacterAvatar'
@@ -9,7 +9,7 @@ import { AppFooter } from '../../components/AppFooter/AppFooter'
 
 export const FeedScreen: FC = () => {
   const { loading, data, error } = useApiData<{
-    combos: ApiCombo[] | null
+    combos: ApiComboWithUser[] | null
   }>('/api/feed')
 
   const combos = data?.combos || []
@@ -22,10 +22,12 @@ export const FeedScreen: FC = () => {
 
       <div className="md:py-8">
         <div className="container">
-          <h2 className="font-bold text-2xl">Latest Combos from the community</h2>
+          <h2 className="font-bold text-2xl">
+            Latest Combos from the community
+          </h2>
 
           {loading ?
-            <div className='my-6'>
+            <div className="my-6">
               <LoadingSpinner />
             </div>
           : error ?
@@ -51,9 +53,18 @@ export const FeedScreen: FC = () => {
                     </div>
 
                     <div className="w-full">
-                      <h2 className="text-xl font-bold ">
-                        {character.name} Combo
-                      </h2>
+                      <div className="flex items-center justify-between">
+                        <h2 className="text-xl font-bold ">
+                          {character.name} Combo
+                        </h2>
+
+                        <img
+                          src={combo.profile_image_url}
+                          className="w-6 h-6 rounded-full"
+                          alt={`Combo contributed by ${combo.display_name}`}
+                          title={`Combo contributed by ${combo.display_name}`}
+                        />
+                      </div>
 
                       <p className="text-white/60 text-xs font-mono py-1">
                         {new Date(combo.created_at).toLocaleDateString(

@@ -24,7 +24,7 @@ func Json(w http.ResponseWriter, r *http.Request) {
 	repo := api_utils.NewCombosRepository(db)
 
 	// todo: support pagination
-	combos, err := repo.LatestCombos(100, 0)
+	combos, err := repo.LatestCombos(500, 0)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write(api_utils.ErrorJson("failed to get combo"))

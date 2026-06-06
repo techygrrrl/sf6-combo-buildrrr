@@ -20,6 +20,15 @@ type DBCombo struct {
 	TwitchUserId string         `db:"twitch_user_id" json:"twitch_user_id"`
 	Combo        types.JSONText `db:"combo" json:"combo"`
 }
+type DBComboWithUser struct {
+	Slug              string         `db:"slug" json:"slug"`
+	CreatedAt         *time.Time     `db:"created_at" json:"created_at"`
+	TwitchUserId      string         `db:"twitch_user_id" json:"twitch_user_id"`
+	TwitchUsername    string         `db:"twitch_username" json:"login"`
+	TwitchDisplayName string         `db:"twitch_display_name" json:"display_name"`
+	ProfileImageURL   string         `db:"profile_image_url" json:"profile_image_url"`
+	Combo             types.JSONText `db:"combo" json:"combo"`
+}
 
 func NewCombosRepository(dbClient *sqlx.DB) CombosRepository {
 	return CombosRepository{dbClient}
@@ -54,9 +63,9 @@ func (c *CombosRepository) FindCombosForUser(twitchId string) ([]DBCombo, error)
 	return combos, nil
 }
 
-func (c *CombosRepository) LatestCombos(limit int, offset int) ([]DBCombo, error) {
-	var combos []DBCombo
-	err := c.db.Select(&combos, "SELECT * from combos ORDER BY created_at DESC LIMIT $1 OFFSET $2", limit, offset)
+func (c *CombosRepository) LatestCombos(limit int, offset int) ([]DBComboWithUser, error) {
+	var combos []DBComboWithUser
+	err := c.db.Select(&combos, "SELECT combos.slug, combos.created_at, combos.twitch_user_id, users.twitch_username, users.twitch_display_name, users.profile_image_url, combos.combo FROM combos JOIN users ON users.twitch_user_id = combos.twitch_user_id ORDER BY created_at DESC LIMIT $1 OFFSET $2", limit, offset)
 	if err != nil {
 		return nil, err
 	}
@@ -64,9 +73,9 @@ func (c *CombosRepository) LatestCombos(limit int, offset int) ([]DBCombo, error
 	return combos, nil
 }
 
-func (c *CombosRepository) GetCombo(slug string) (*DBCombo, error) {
-	var combos []DBCombo
-	err := c.db.Select(&combos, "SELECT * from combos WHERE slug = $1", slug)
+func (c *CombosRepository) GetCombo(slug string) (*DBComboWithUser, error) {
+	var combos []DBComboWithUser
+	err := c.db.Select(&combos, "SELECT combos.slug, combos.created_at, combos.twitch_user_id, users.twitch_username, users.twitch_display_name, users.profile_image_url, combos.combo FROM combos JOIN users ON users.twitch_user_id = combos.twitch_user_id WHERE slug = $1", slug)
 	if err != nil {
 		return nil, err
 	}

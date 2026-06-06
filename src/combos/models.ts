@@ -56,3 +56,10 @@ export type ApiCombo = {
   twitch_user_id: string
   slug: string
 }
+
+export type ApiComboWithUser = ApiCombo & {
+  twitch_username: string
+  login: string
+  display_name: string
+  profile_image_url: string
+}
