@@ -1,5 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "go",
+  "builds": [
+    {
+      "src": "api/**/*.go",
+      "use": "@vercel/go"
+    }
+  ],
   "rewrites": [
     {
       "source": "/:path((?!api/).*)",

@@ -1,4 +1,4 @@
-package profile
+package handler
 
 import (
 	"encoding/json"
@@ -7,7 +7,7 @@ import (
 	"github.com/techygrrrl/sf6-combo-buildrrr/api_utils"
 )
 
-func Json(w http.ResponseWriter, r *http.Request) {
+func Handler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	if r.Method == "OPTIONS" {

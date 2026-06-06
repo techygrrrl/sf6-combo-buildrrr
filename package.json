@@ -7,7 +7,7 @@
     "build": "npm run appversion && tsc -b && vite build",
     "lint": "sh scripts/lint.sh && eslint .",
     "dev:client": "npm run appversion && vite --port 40078",
-    "dev:server": "npm run appversion && npx vercel@37.8.0 dev --listen 40077",
+    "dev:server": "npm run appversion && npx vercel dev --listen 40077",
     "appversion": "sh scripts/generate_app_version.sh",
     "prettier": "npx prettier --write ."
   },

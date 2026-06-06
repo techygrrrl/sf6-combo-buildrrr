@@ -1,4 +1,4 @@
-package save
+package handler
 
 import (
 	"context"
@@ -11,7 +11,7 @@ import (
 
 var ctx = context.Background()
 
-func Json(w http.ResponseWriter, r *http.Request) {
+func Handler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	if r.Method == "OPTIONS" {
