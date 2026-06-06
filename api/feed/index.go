@@ -1,4 +1,4 @@
-package feed
+package handler
 
 import (
 	"encoding/json"
@@ -8,7 +8,7 @@ import (
 	"github.com/techygrrrl/sf6-combo-buildrrr/api_utils"
 )
 
-func Json(w http.ResponseWriter, r *http.Request) {
+func Handler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	if r.Method == "OPTIONS" {
@@ -24,7 +24,7 @@ func Json(w http.ResponseWriter, r *http.Request) {
 	repo := api_utils.NewCombosRepository(db)
 
 	// todo: support pagination
-	combos, err := repo.LatestCombos(100, 0)
+	combos, err := repo.LatestCombos(500, 0)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write(api_utils.ErrorJson("failed to get combo"))

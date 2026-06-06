@@ -37,7 +37,7 @@ export const AppHeader: FC = () => {
         <div className="md:flex justify-between items-center text-sm md:text-base">
           <div className="flex justify-center md:justify-normal">
             <h1 className="font-bold mb-2 md:mb-0">
-              <a href="#site-footer">sf6 combo buildrrr</a>
+              <a href="/">sf6 combo buildrrr</a>
             </h1>
           </div>
 
