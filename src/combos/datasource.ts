@@ -380,56 +380,35 @@ const getCommonButtonMoves = (): Move[] => {
 const combosDataSource: CombosDataSource = {
   characters: [
     {
-      id: 'cammy',
-      name: 'Cammy',
+      id: 'ingrid',
+      name: 'Ingrid',
     },
     {
-      id: 'manon',
-      name: 'Manon',
+      id: 'cviper',
+      name: 'C. Viper',
+      disabled: true,
     },
     {
-      id: 'juri',
-      name: 'Juri',
+      id: 'alex',
+      name: 'Alex',
+      disabled: true,
+    },
+    {
+      id: 'sagat',
+      name: 'Sagat',
+      disabled: true,
     },
     {
       id: 'elena',
       name: 'Elena',
     },
     {
-      id: 'ingrid',
-      name: 'Ingrid',
-    },
-    {
-      id: 'aki',
-      name: 'A.K.I.',
-      disabled: true,
-    },
-    {
-      id: 'chunli',
-      name: 'Chun-Li',
-      disabled: true,
-    },
-    {
-      id: 'kimberly',
-      name: 'Kimberly',
-    },
-    {
-      id: 'marisa',
-      name: 'Marisa',
-      disabled: true,
-    },
-    {
       id: 'mai',
       name: 'Mai',
     },
     {
-      id: 'lily',
-      name: 'Lily',
-      disabled: true,
-    },
-    {
-      id: 'gouki',
-      name: 'Akuma',
+      id: 'terry',
+      name: 'Terry',
       disabled: true,
     },
     {
@@ -438,18 +417,8 @@ const combosDataSource: CombosDataSource = {
       disabled: true,
     },
     {
-      id: 'blanka',
-      name: 'Blanka',
-      disabled: true,
-    },
-    {
-      id: 'deejay',
-      name: 'DeeJay',
-      disabled: true,
-    },
-    {
-      id: 'dhalsim',
-      name: 'Dhalsim',
+      id: 'gouki',
+      name: 'Akuma',
       disabled: true,
     },
     {
@@ -458,33 +427,8 @@ const combosDataSource: CombosDataSource = {
       disabled: true,
     },
     {
-      id: 'guile',
-      name: 'Guile',
-      disabled: true,
-    },
-    {
-      id: 'honda',
-      name: 'E. Honda',
-      disabled: true,
-    },
-    {
-      id: 'jamie',
-      name: 'Jamie',
-      disabled: true,
-    },
-    {
-      id: 'jp',
-      name: 'JP',
-      disabled: true,
-    },
-    {
-      id: 'ken',
-      name: 'Ken',
-      disabled: true,
-    },
-    {
-      id: 'luke',
-      name: 'Luke',
+      id: 'aki',
+      name: 'A.K.I.',
       disabled: true,
     },
     {
@@ -493,18 +437,89 @@ const combosDataSource: CombosDataSource = {
       disabled: true,
     },
     {
-      id: 'ryu',
-      name: 'Ryu',
+      id: 'cammy',
+      name: 'Cammy',
     },
     {
-      id: 'terry',
-      name: 'Terry',
+      id: 'lily',
+      name: 'Lily',
       disabled: true,
     },
     {
       id: 'zangief',
       name: 'Zangief',
       disabled: true,
+    },
+    {
+      id: 'jp',
+      name: 'JP',
+      disabled: true,
+    },
+    {
+      id: 'marisa',
+      name: 'Marisa',
+      disabled: true,
+    },
+    {
+      id: 'manon',
+      name: 'Manon',
+    },
+    {
+      id: 'deejay',
+      name: 'DeeJay',
+      disabled: true,
+    },
+    {
+      id: 'honda',
+      name: 'E. Honda',
+      disabled: true,
+    },
+    {
+      id: 'dhalsim',
+      name: 'Dhalsim',
+      disabled: true,
+    },
+    {
+      id: 'blanka',
+      name: 'Blanka',
+      disabled: true,
+    },
+    {
+      id: 'ken',
+      name: 'Ken',
+      disabled: true,
+    },
+    {
+      id: 'juri',
+      name: 'Juri',
+    },
+    {
+      id: 'kimberly',
+      name: 'Kimberly',
+    },
+    {
+      id: 'guile',
+      name: 'Guile',
+      disabled: true,
+    },
+    {
+      id: 'chunli',
+      name: 'Chun-Li',
+      disabled: true,
+    },
+    {
+      id: 'jamie',
+      name: 'Jamie',
+      disabled: true,
+    },
+    {
+      id: 'luke',
+      name: 'Luke',
+      disabled: true,
+    },
+    {
+      id: 'ryu',
+      name: 'Ryu',
     },
   ],
   moves: {
@@ -4421,6 +4436,60 @@ const combosDataSource: CombosDataSource = {
       ...getCommonDriveEtcMoves(),
     ],
 
+    sagat: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveEtcMoves(),
+    ],
+
+    cviper: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveEtcMoves(),
+    ],
+
+    alex: [
+      ...getCommonButtonMoves(),
+
+      // Unique moves
+      // {
+      // },
+
+      // Specials
+      // {
+      // },
+
+      // Supers
+      // {
+      // },
+
+      ...getCommonDriveEtcMoves(),
+    ],
+
     ingrid: [
       ...getCommonButtonMoves(),
 
@@ -4428,7 +4497,7 @@ const combosDataSource: CombosDataSource = {
       {
         name: 'Sun Bright',
         helpText: '',
-         resources: {
+        resources: {
           drive: 0,
           super: 0,
         },
@@ -4441,7 +4510,7 @@ const combosDataSource: CombosDataSource = {
       {
         name: 'Halo Flight',
         helpText: '',
-         resources: {
+        resources: {
           drive: 0,
           super: 0,
         },
@@ -4454,7 +4523,7 @@ const combosDataSource: CombosDataSource = {
       {
         name: 'Pretty Heel Kick',
         helpText: '',
-         resources: {
+        resources: {
           drive: 0,
           super: 0,
         },
@@ -4467,7 +4536,7 @@ const combosDataSource: CombosDataSource = {
       {
         name: 'Glowing Touch',
         helpText: '',
-         resources: {
+        resources: {
           drive: 0,
           super: 0,
         },
@@ -4482,7 +4551,7 @@ const combosDataSource: CombosDataSource = {
       {
         name: 'Luminous Uppercut',
         helpText: '',
-         resources: {
+        resources: {
           drive: 0,
           super: 0,
         },
@@ -4497,7 +4566,7 @@ const combosDataSource: CombosDataSource = {
       {
         name: 'Satellite Leap',
         helpText: 'During a jump',
-         resources: {
+        resources: {
           drive: 0,
           super: 0,
         },
@@ -4681,7 +4750,8 @@ const combosDataSource: CombosDataSource = {
       },
       {
         name: 'Solar Burst (H)',
-        helpText: '(During a neutral or forward jump) Sun Crests change the effect',
+        helpText:
+          '(During a neutral or forward jump) Sun Crests change the effect',
         resources: {
           drive: 0,
           super: 0,
@@ -4697,7 +4767,8 @@ const combosDataSource: CombosDataSource = {
       },
       {
         name: 'Solar Burst (OD)',
-        helpText: '(During a neutral or forward jump) Sun Crests change the effect',
+        helpText:
+          '(During a neutral or forward jump) Sun Crests change the effect',
         resources: {
           drive: 0,
           super: 0,
@@ -4712,7 +4783,7 @@ const combosDataSource: CombosDataSource = {
         ],
       },
 
-       // Sun Rise (LK)
+      // Sun Rise (LK)
       {
         name: 'Sun Rise (L)',
         helpText: '',
@@ -4798,7 +4869,7 @@ const combosDataSource: CombosDataSource = {
           commonInputs.motion_DOWN,
           commonInputs.plus,
           commonInputs.KICK,
-        ]
+        ],
       },
       {
         name: 'Sun Veil (OD)',
@@ -4814,7 +4885,7 @@ const combosDataSource: CombosDataSource = {
           commonInputs.plus,
           commonInputs.KICK,
           commonInputs.KICK,
-        ]
+        ],
       },
 
       // Vanishing Sun
@@ -4832,7 +4903,7 @@ const combosDataSource: CombosDataSource = {
           commonInputs.KICK,
           commonInputs.KICK,
           commonInputs.KICK,
-        ]
+        ],
       },
       {
         name: 'Vanishing Sun',
@@ -4848,7 +4919,7 @@ const combosDataSource: CombosDataSource = {
           commonInputs.KICK,
           commonInputs.KICK,
           commonInputs.KICK,
-        ]
+        ],
       },
       {
         name: 'Vanishing Sun',
@@ -4864,7 +4935,7 @@ const combosDataSource: CombosDataSource = {
           commonInputs.KICK,
           commonInputs.KICK,
           commonInputs.KICK,
-        ]
+        ],
       },
 
       // Supers
@@ -4946,7 +5017,6 @@ const combosDataSource: CombosDataSource = {
         ],
       },
 
-
       {
         name: 'Cosmic Ray',
         helpText: '',
@@ -4967,7 +5037,7 @@ const combosDataSource: CombosDataSource = {
       },
 
       ...getCommonDriveEtcMoves(),
-    ]
+    ],
   },
 }
 
