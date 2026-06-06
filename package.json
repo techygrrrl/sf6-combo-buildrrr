@@ -7,7 +7,7 @@
     "build": "npm run appversion && tsc -b && vite build",
     "lint": "sh scripts/lint.sh && eslint .",
     "dev:client": "npm run appversion && vite --port 40078",
-    "dev:server": "npm run appversion && npx vercel dev --listen 40077",
+    "dev:server": "npm run appversion && vercel dev --listen 40077",
     "appversion": "sh scripts/generate_app_version.sh",
     "prettier": "npx prettier --write ."
   },
@@ -37,6 +37,7 @@
     "tailwindcss": "^3.4.14",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.11.0",
+    "vercel": "37.8.0",
     "vite": "^5.4.10"
   }
 }
