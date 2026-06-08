@@ -112,7 +112,7 @@ const getCommonDriveEtcMoves = (): Move[] => {
         commonInputs.motion_FORWARD,
         commonInputs.motion_FORWARD,
       ],
-      width: 50,
+      width: 33.3333,
     },
     {
       name: 'Drive Rush Cancel',
@@ -129,12 +129,12 @@ const getCommonDriveEtcMoves = (): Move[] => {
         commonInputs.MEDIUM_PUNCH,
         commonInputs.MEDIUM_KICK,
       ],
-      width: 50,
+      width: 33.3333,
     },
     {
       name: 'Drive Impact',
       helpText: '',
-      width: 50,
+      width: 33.3333,
       resources: {
         drive: 1,
         super: 0,
@@ -142,9 +142,32 @@ const getCommonDriveEtcMoves = (): Move[] => {
       inputs: [commonInputs.HEAVY_PUNCH, commonInputs.HEAVY_KICK],
     },
     {
+      name: 'Dash',
+      helpText: '',
+      width: 33.3333,
+      resources: {
+        drive: 0,
+        super: 0,
+      },
+      inputs: [
+        commonInputs.motion_FORWARD,
+        commonInputs.motion_FORWARD,
+      ],
+    },
+    {
+      name: 'Walk',
+      helpText: '',
+      width: 33.3333,
+      resources: {
+        drive: 0,
+        super: 0,
+      },
+      inputs: [commonInputs.motion_FORWARD],
+    },
+    {
       name: 'Micro-walk',
       helpText: 'Slight walk forward',
-      width: 50,
+      width: 33.3333,
       resources: {
         drive: 0,
         super: 0,
