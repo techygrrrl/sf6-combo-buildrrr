@@ -4725,7 +4725,7 @@ const combosDataSource: CombosDataSource = {
         name: 'Sun Flare (OD)',
         helpText: 'Sun crests change the effect',
         resources: {
-          drive: 0,
+          drive: 2,
           super: 0,
         },
         inputs: [
@@ -4793,7 +4793,7 @@ const combosDataSource: CombosDataSource = {
         helpText:
           '(During a neutral or forward jump) Sun Crests change the effect',
         resources: {
-          drive: 0,
+          drive: 2,
           super: 0,
         },
         inputs: [
